@@ -1,5 +1,7 @@
 
 ### THIS WIKI IS UNDER CONSTRUCTION 
+#### At present it is a direct copy of the wiki at https://github.com/usgs/gems-tools-arcmap/wiki
+It will get updated to reflect usage of the tools in ArcGIS Pro
 ***
 
 This wiki documents the [GeMS](http://ngmdb.usgs.gov/Info/standards/GeMS) (<u>**Ge**</u>ologic <u>**M**</u>ap <u>**S**</u>chema) tools for ArcGIS and makes suggestions for the use of GeMS. GeMS is a draft standard for encoding a geologic map in a GIS.  It succeeds the [NCGMP09v1.1 database schema](https://pubs.usgs.gov/of/2010/1335/pdf/usgs_of2010-1335_NCGMP09.pdf) published in 2010. 
