@@ -26,4 +26,4 @@ GeMS stores metadata at three levels:
    A couple of suggestions:
 
    1. Many geologic-map databases are parts of a larger work, and should be cited as such. Besides providing intellectual context and more complete bibliographic data, this allows more-visible credit for the creator of the database  
-   2. In the Supplemental Information section, note that this is a GeMS database and provide a link to http://ngmdb.gov/Info/standards/GeMS
+   2. In the Supplemental Information section, note that this is a GeMS database and provide a link to http://ngmdb.usgs.gov/Info/standards/GeMS 
