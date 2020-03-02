@@ -1,6 +1,6 @@
 
 ### THIS WIKI IS UNDER CONSTRUCTION 
-#### At present this wiki a direct copy of the wiki at https://github.com/usgs/gems-tools-arcmap/wiki
+#### At present this wiki is a direct copy of the wiki at https://github.com/usgs/gems-tools-arcmap/wiki
 It will get updated to reflect usage of the tools in ArcGIS Pro
 ***
 
