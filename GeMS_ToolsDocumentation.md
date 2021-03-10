@@ -23,7 +23,7 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 | [Deplanarize CAF](#DeplanarizeCAF) | X | | |  |
 | [DMU to .docx](#DMUtodocx) |  | | X | X |
 | [FGDC CSDGM2 Metadata](#FGDCCSDGM2) |  | | X |  |
-| [Geologic Names Check](#) GeologicNamesCheck|  | | X | X |
+| [Geologic Names Check](#GeologicNamesCheck) |  | | X | X |
 | [Inclination Numbers](#InclinationNumbers) |  | X | |  |
 | [Make Polygons](#MakePolygons) | X | | |  |
 | [Make Topology](#MakeTopology) | X | | |  |
