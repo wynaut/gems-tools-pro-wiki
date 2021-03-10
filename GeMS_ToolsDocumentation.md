@@ -23,6 +23,7 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 | [Deplanarize CAF](#DeplanarizeCAF) | X | | |  |
 | [DMU to .docx](#DMUtodocx) |  | | X | X |
 | [FGDC CSDGM2 Metadata](#FGDCCSDGM2) |  | | X |  |
+| [Geologic Names Check](#GeologicNamesCheck |  | | X | X |
 | [Inclination Numbers](#InclinationNumbers) |  | X | |  |
 | [Make Polygons](#MakePolygons) | X | | |  |
 | [Make Topology](#MakeTopology) | X | | |  |
@@ -287,6 +288,8 @@ You want ISO metadata? Change your Metadata Style and fix records using the ArcC
 | GeMS-style_geodatabase          |                                                              | Workspace |
 | definitionExtensions (Optional) | Optional: file with extensions to definitions given in GeMS_Definitions.py. Useful for persistent entity and field descriptions, amongst other things. See file [my_GeMSDefinitions.py](https://github.com/usgs/GeMS_Tools/blob/master/Scripts/my_GeMSDefinitions.py), in Scripts directory of GeMS_Tools, for an example and further directions. | File      |
 
+
+### <a name="GeologicNamesCheck"></a>Geologic Names Check
 
 
 ### <a name="InclinationNumbers"></a>Inclination Numbers
