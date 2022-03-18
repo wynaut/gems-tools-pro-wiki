@@ -43,7 +43,7 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 
 ### <a name="(re)SetIDvalues"></a>(re)Set ID values
 
-*[GeMS_reID_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_reID_Arc10.py)*
+*[GeMS_reID_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_reID_AGP2.py)*
 
 GeMS-style databases use _ID values as primary keys; these values are repeated as ID values in other tables where they serve as foreign keys to tie tables together. **(re)Set ID values** generates _ID values while preserving any links established by existing _ID and ID values. As an option, GUIDs may be substituted for plain-text _ID and ID values.
 
@@ -59,7 +59,7 @@ This script modifies the input geodatabase. Make a backup copy (with **Compact a
 
 ### <a name=".docxtoDMU"></a>.docx to DMU
 
-*[GeMS_DocxToDMU_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_DMUtoDocx_Arc10.py)*
+*[GeMS_DocxToDMU_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_DMUtoDocx_AGP2.py)*
 
 .docx to DMU** extracts DMU paragraphs from a Microsoft Word document, calculates values of HierarchyKey, and partially fills in table DescriptionOfMapUnits. Non-DMU paragraphs (the rest of the map text) are ignored. The Word document must be formatted using the paragraph styles in USGS Pubs template *MapManuscript_v1-0_04-11.dotx*, which is included with in folder *GeMS_Tools/Docs*.
 
@@ -84,7 +84,7 @@ Values of UnitLabl in the manuscript must be unique.
 
 ### <a name="AttributebyKeyValues"></a>Attribute by Key Values
 
-*[GeMS_AttributeByKeyValues_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_AttributeByKeyValues_Arc10.py)*
+*[GeMS_AttributeByKeyValues_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_AttributeByKeyValues_AGP2.py)*
 
 **Attribute By Key Values** steps through an identified subset of feature classes in the GeologicMap feature dataset and, for specified values of an independent field, calculates values of multiple dependent fields. It is useful for translating single-attribute datasets into GeMS format, and for using GeMS to digitize in single-attribute mode.
 
@@ -145,7 +145,7 @@ Tool **Attribute By Key Values** can be run multiple times during the course of 
 
 ### <a name="CompactAndBackup"></a>Compact and Backup
 
-*[GeMS_CompactAndBackup_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_CompactAndBackup_Arc10.py)*
+*[GeMS_CompactAndBackup_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_CompactAndBackup_AGP2.py)*
 
 **Compact and Backup** compacts a database and copies it to an archive version. The archive version is 
 named *geodatabasename*_current date. Multiple backups in a single day will have suffixes a, b, c, etc. 
@@ -159,7 +159,7 @@ named *geodatabasename*_current date. Multiple backups in a single day will have
 
 ### <a name="CreateNewDatabase"></a>Create New Database
 
-*[GeMS_CreateDatabase_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_CreateDatabase_Arc10.py)*
+*[GeMS_CreateDatabase_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_CreateDatabase_AGP2.py)*
 
 **Create New Database** creates a new GeMS-style geodatabase. 
 
@@ -188,7 +188,7 @@ This tool may take several minutes to run.
 
 ### <a name="DeplanarizeCAF"></a>Deplanarize CAF
 
-*[GeMS_Deplanarize_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_Deplanarize_Arc10.py)*
+*[GeMS_Deplanarize_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_Deplanarize_AGP2.py)*
 
 **Deplanarize CAF** removes excess nodes from arcs in the ContactsAndFaults feature class of the GeologicMaps feature dataset of a GeMS-style geodatabase. *Note: This script has not been extensively tested. PLEASE back up your geodatabase before running it. Examine the results for correctness.*
 
@@ -210,7 +210,7 @@ Nodes are named by their XY coordinates recorded to within 0.01 map units. We as
 
 ### <a name="DMUtodocx"></a>DMU to .docx
 
-*[GeMS_DMUtoDocx_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_DocxToDMU_Arc10.py)*
+*[GeMS_DMUtoDocx_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_DocxToDMU_AGP2.py)*
 
 **DMU to .docx** reads table DescriptionOfMapUnits in a GeMS-style geodatabase and creates"Description of Map Units" as a Microsoft Word .docx file using paragraph styles defined in USGS Pubs template *MapManuscript_v1-0_04-11.dotx*. The resulting file is likely to need minor editing, particularly finding and replacing all instances of “--” with em dashes. 
 
@@ -248,7 +248,7 @@ Nodes are named by their XY coordinates recorded to within 0.01 map units. We as
 
 ### <a name="FGDCCSDGM2"></a>FGDC CSDGM2 Metadata
 
-*[GeMS_MetadataCSDGM2_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_MetadataCSDGM2_Arc10.py)*
+*[GeMS_MetadataCSDGM2_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_MetadataCSDGM2_AGP2.py)*
 
 **FGDC CSDGM2 Metadata** helps elaborate CSDGM2-style metadata for all elements of a GeMS-style geodatabase. 
 
@@ -291,7 +291,7 @@ You want ISO metadata? Change your Metadata Style and fix records using the ArcC
 
 ### <a name="GeologicNamesCheck"></a>Geologic Names Check
 
-*[GeMS_GeolexCheck_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_GeolexCheck_AGP2.py)*
+*[GeMS_GeolexCheck_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_GeolexCheck_AGP2.py)*
 
 **Geologic Names Check** automates some of the steps in a geologic names review as required by USGS publication policy. It searches within the DescriptionOfMapUnits table for names and usages found in the U.S. Geologic Names Lexicon (Geolex) and provides a report template in spreadsheet form for the author and reviewer to use during the review process. The tool reports the Geolex names found within the map unit name, the usages associated with those names, and whether or not the author's choice of geographic extent matches that found in Geolex. Comparisons of age and status (formal vs informal) are not at this time considered.
 
@@ -305,7 +305,7 @@ More info at [Filling out the Geologic Names Report](https://github.com/usgs/gem
 
 ### <a name="InclinationNumbers"></a>Inclination Numbers
 
-*[GeMS_InclinationNumbers_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_InclinationNumbers_Arc10.py)*
+*[GeMS_InclinationNumbers_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_InclinationNumbers_AGP2.py)*
 
 Creates annotation feature class OrientationPointLabels with dip and plunge numbers for appropriate features within OrientationPoints. Adds a layer representing the new annotation feature class to your map composition. 
 
@@ -337,7 +337,7 @@ def isPlanar(orientationType):
 
 ###<a name="MakePolygons"></a>Make Polygons
 
-*[GeMS_MakePolys3_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_MakePolys3_Arc10.py)*
+*[GeMS_MakePolys3_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_MakePolys3_AGP2.py)*
 
 **Make Polygons**:
 
@@ -363,7 +363,7 @@ While running, **Make Polygons** writes (overwrites) and deletes temporary featu
 
 ### <a name="MakeTopology"></a>Make Topology
 
-*[GeMS_MakeTopology_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_MakeTopology_Arc10.py)*
+*[GeMS_MakeTopology_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_MakeTopology_AGP2.py)*
 
 Creates and validates a topology feature class within a GeMS-style feature dataset. The new topology class is named GeologicMap_Topology (for the GeologicMap feature class) or xxx_Topology (for all other feature classes, where xxx is the prefix for the ContactsAndFaults-equivalent feature class within that feature dataset). Any existing topology with this name will be deleted. The input feature dataset should contain feature classes xxxContactsAndFaults and xxxMapUnitPolys (where xxx may be null). 
 
@@ -387,7 +387,7 @@ Esri topology rules applied are:
 
 ### <a name="MapOutline"></a>MapOutline  
 
-*[mapOutline_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/mapOutline_Arc10.py)*
+*[mapOutline_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/mapOutline_AGP2.py)*
 
 **MapOutline** calculates a map boundary and tics for rectangular (in latitude-longitude space) areas. Locations of boundary and tics are projected to the specified output coordinate system. 
 
@@ -411,7 +411,7 @@ Output feature classes MapOutline and Tics are written to the top level of the o
 
 ### <a name="ProjectMap"></a>Project Map Data to Cross Section
 
-*[GeMS_ProjectCrossSectionData_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ProjectCrossSectionData_Arc10.py)*
+*[GeMS_ProjectCrossSectionData_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ProjectCrossSectionData_AGP2.py)*
 
 **Project Map Data toCross Section** generates backdrop feature classes useful in constructing a geologic cross section. Inputs include the GeologicMap feature dataset of a GeMS-style geodatabase, a cross-section line (feature class, feature layer, or selection), and a DEM. The cross-section line need not be straight. 
 
@@ -452,7 +452,7 @@ This script also creates empty GeMS feature classes CSxxContactsAndFaults, CSxxM
 
 ### <a name="ProjectPoints"></a>Project Points to Cross Section
 
-*[GeMS_ProjectPtsToCrossSection_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ProjectPtsToCrossSection_Arc10.py)*
+*[GeMS_ProjectPtsToCrossSection_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ProjectPtsToCrossSection_AGP2.py)*
 
 **Project Points to Cross Section** projects points within a specified horizontal distance of a cross-section line into the vertical cross-section plane. Output is a feature class with attributes *className*_ID, ID, and DistanceFromSection. The source point feature class may then be joined to the output feature class--using ID and _ID as the join fields--to make the entire set of source feature class attributes available. The cross-section line must be straight!
 
@@ -477,7 +477,7 @@ Script **ProjectMap Data To Cross Section** is likely to be more useful. It will
 
 ### <a name="PurgeMetadata"></a>Purge Metadata
 
-*[GeMS_PurgeMetadata_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_PurgeMetadata_Arc10.py)*
+*[GeMS_PurgeMetadata_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_PurgeMetadata_AGP2.py)*
 
 Purges metadata of geoprocessing history (and probably any other elements that don't have a place within the FGDC CSDGM2 metadata schema). Steps through all feature datasets, feature classes within feature datasets, tables ,and the dataset as a whole; for each item this script:
 
@@ -502,7 +502,7 @@ The USGS EGIS tools must be installed for this script to work.
 
 ### <a name="RelationshipClasses"></a>Relationship Classes
 
-*[GeMS_RelationshipClasses1_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_RelationshipClasses1_Arc10.py)*
+*[GeMS_RelationshipClasses1_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_RelationshipClasses1_AGP2.py)*
 
 A GeMS geodatabase has numerous implicit relationships. For example, 
 
@@ -528,7 +528,7 @@ Note that:
 
 ### <a name="SetPlotAtScaleValues"></a>Set PlotAtScale Values
 
-*[GeMS_SetPlotAtScales_Arc10.py]()*
+*[GeMS_SetPlotAtScales_AGP2.py]()*
 
 Sets values of item PlotAtScale so that a definition query 
 
