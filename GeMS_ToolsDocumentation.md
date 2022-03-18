@@ -301,6 +301,8 @@ You want ISO metadata? Change your Metadata Style and fix records using the ArcC
 | States_extent | One or more (comma separated) state or territory abbreviations. Examples are "WA", or "ID,OR,WA" | String |
 | open_report_when_completed? (optional) | Should the Excel report file be opened when the script has finished running? | Boolean|
 
+More info at [Filling out the Geologic Names Report](https://github.com/usgs/gems-tools-pro/wiki/Filling-out-the-Geologic-Names-Check-report)
+
 ### <a name="InclinationNumbers"></a>Inclination Numbers
 
 *[GeMS_InclinationNumbers_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_InclinationNumbers_Arc10.py)*
