@@ -1,5 +1,3 @@
-### <a name="GeologicNamesCheck"></a>Geologic Names Check
-
 This tool provides a cursory check of formal geologic names applied to geologic units in a GeMS-compliant DescriptionOfMapUnits table (DMU). It allows for the semi-automated comparison of the usage, age, and extent (to the State level) of the unit names in the DMU with the information compiled in the U.S.Geologic Names Lexicon, or [Geolex](https://ngmdb.usgs.gov/Geolex/search#:~:text=The%20U.S.%20Geologic%20Names%20Lexicon,and%20descriptions%20of%20geologic%20units.). 
 
 The script queries Geolex to identify possible matches with any formal geologic names that are among the map unit names in the DMU and then creates a spreadsheet for review by the map author. If submitted to the NGMDB, the secretary of the Geologic Names Committee (GNC) will then evaluate and compile into Geolex the information from the author-provided comments and references and(or) from the map (when published).
