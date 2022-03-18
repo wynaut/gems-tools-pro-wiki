@@ -4,7 +4,7 @@ To obtain and install GeMS Tools, see the README file at https://github.com/usgs
 
 If you see a need to correct or improve this documentation, please feel free to edit this wiki.  
 
-These scripts are far from perfect.  When things fail, here are a couple of things to look at.
+These scripts are far from perfect. When things fail, here are a couple of things to look at.
 
 - Check for unexpected file and directory locks.  Have you Stopped Editing?  Is there another ArcMap process lurking somewhere with a lock on your database?  Quit everything Arc, open Windows Task Manager, check for orphan ArcMap and ArcCatalog process, and restart ArcMap.
 - Some of the scripts appear to run into name-space issues that I (RH) don't understand. Quit ArcMap and try running the script from ArcCatalog.
