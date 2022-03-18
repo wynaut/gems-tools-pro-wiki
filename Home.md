@@ -16,39 +16,39 @@ We assume that readers have some familiarity with ArcGIS and geologic maps.
 
 This wiki was developed for a 1-day workshop *Implementation of the GeMS database schema for geologic maps*, to be offered at the [May 2018 Digital Mapping Techniques meeting in Lexington, Kentucky](http://kgs.uky.edu/kgsweb/dmt18/index.htm). The wiki is derived from earlier documentation of GeMS_Tools (see older versions of the tools), a half-day short course *Making Digital Geologic Maps with the NCGMP09 Database Schema* at the Geological Society of America 2014 Annual Meeting, and materials used to teach the NCGMP09/GeMS schema to *GIS for the Earth Sciences* and *Field Geology* classes at the University of Washington.  
 
-This wiki is incomplete, incompletely edited, and idiosyncratic. If you feel compelled to fix any of this, please suggest changes! [Raise an issue](https://github.com/usgs/GeMS_Tools/issues/). Or clone the wiki, edit your version, zip up your new and(or) revised files, and send them to gems@usgs.gov with a note that briefly explains what you have done. New pages that describe how you accomplish a GeMS-related task are particularly encouraged. 
+This wiki is incomplete, incompletely edited, and idiosyncratic. If you feel compelled to fix any of this, please suggest changes! [Raise an issue](https://github.com/usgs/gems-tools-pro/issues/). Or clone the wiki, edit your version, zip up your new and(or) revised files, and send them to gems@usgs.gov with a note that briefly explains what you have done. New pages that describe how you accomplish a GeMS-related task are particularly encouraged. 
 
 ## GeMS Tools, an ArcGIS toolbox
 
-[***Link to ArcGIS tool interface documentation***](https://github.com/usgs/GeMS_Tools/wiki/GeMS_ToolsDocumentation)  *With some discussion on tool use*
+[***Link to ArcGIS tool interface documentation***](https://github.com/usgs/gems-tools-pro/wiki/GeMS_ToolsDocumentation)  *With some discussion on tool use*
 
 ## Some common tasks
 
-***[Configure ArcMap](https://github.com/usgs/GeMS_Tools/wiki/ConfigureArcMap)***
+***[Configure ArcMap](https://github.com/usgs/gems-tools-pro/wiki/ConfigureArcMap)***
 
-***[Hard-drive hygiene](https://github.com/usgs/GeMS_Tools/wiki/HardDriveHygiene)***  *Recommendations on directory structure*
+***[Hard-drive hygiene](https://github.com/usgs/gems-tools-pro/wiki/HardDriveHygiene)***  *Recommendations on directory structure*
 
-[***Work with multi-attribute lines***](https://github.com/usgs/GeMS_Tools/wiki/MultiAttributeLines)
+[***Work with multi-attribute lines***](https://github.com/usgs/gems-tools-pro/wiki/MultiAttributeLines)
 
-***[Make and color map-unit polygons](https://github.com/usgs/GeMS_Tools/wiki/MakeColorPolygons)***
+***[Make and color map-unit polygons](https://github.com/usgs/gems-tools-pro/wiki/MakeColorPolygons)***
 
-[***Create CMU and DMU***](https://github.com/usgs/GeMS_Tools/wiki/CMUandDMU)
+[***Create CMU and DMU***](https://github.com/usgs/gems-tools-pro/wiki/CMUandDMU)
 
-[***Topology Check***](https://github.com/usgs/GeMS_Tools/wiki/TopologyCheck) *Find topology errors that Arc cannot*
+[***Topology Check***](https://github.com/usgs/gems-tools-pro/wiki/TopologyCheck) *Find topology errors that Arc cannot*
 
-[***Set Symbol and Label values***](https://github.com/usgs/GeMS_Tools/wiki/SymbolsAndLabels)
+[***Set Symbol and Label values***](https://github.com/usgs/gems-tools-pro/wiki/SymbolsAndLabels)
 
-***[Complete metadata](https://github.com/usgs/GeMS_Tools/wiki/CompleteMetadata)***
+***[Complete metadata](https://github.com/usgs/gems-tools-pro/wiki/CompleteMetadata)***
 
-***[Finalize database](https://github.com/usgs/GeMS_Tools/wiki/FinalizeDatabase)***
+***[Finalize database](https://github.com/usgs/gems-tools-pro/wiki/FinalizeDatabase)***
 
 ## Learning exercises
 
-[***Make a new geomorphic map***](https://github.com/usgs/GeMS_Tools/wiki/MakeNewGeomorphicMap)
+[***Make a new geomorphic map***](https://github.com/usgs/gems-tools-pro/wiki/MakeNewGeomorphicMap)
 
-[***Translate an existing digital geologic map***](https://github.com/usgs/GeMS_Tools/wiki/TranslateDigitalMap)
+[***Translate an existing digital geologic map***](https://github.com/usgs/gems-tools-pro/wiki/TranslateDigitalMap)
 
-[***Transcribe an existing analog geologic map***](https://github.com/usgs/GeMS_Tools/wiki/TranscribeAnalogMap)
+[***Transcribe an existing analog geologic map***](https://github.com/usgs/gems-tools-pro/wiki/TranscribeAnalogMap)
 
 ------
 
