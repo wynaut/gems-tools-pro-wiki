@@ -528,7 +528,7 @@ Note that:
 
 ### <a name="SetPlotAtScaleValues"></a>Set PlotAtScale Values
 
-*[GeMS_SetPlotAtScales_AGP2.py]()*
+*[GeMS_SetPlotAtScales_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_SetPlotAtScales_AGP2.py)*
 
 Sets values of item PlotAtScale so that a definition query 
 
@@ -548,7 +548,7 @@ Input feature class must have PlotAtScale field. If input feature class is named
 
 ### <a name="SetSymbolValues"></a>Set Symbol Values
 
-*[GeMS_SetSymbols_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_SetSymbols_Arc10.py)*
+*[GeMS_SetSymbols_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_SetSymbols_AGP2.py)*
 
 **Set Symbol Values** sets the *Symbol* attribute for some features in a GeMS-style geodatabase to match symbol IDs in the GSC implementation of the FGDC Digital Cartographic Standard forGeologic Map Symbolization (FGDC-STD-013-2006). 
 
@@ -604,7 +604,7 @@ Calculates values of AreaFillRGB in table DescriptionOfMapUnits of a GeMS-style 
 
 ### <a name="TopologyCheck"></a>Topology Check
 
-*[GeMS_TopologyCheck_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_TopologyCheck_Arc10.py)*
+*[GeMS_TopologyCheck_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_TopologyCheck_AGP2.py)*
 
 **Topology Check** evaluates topological aspects of feature datasets in a GeMS-style geologic map geodatabase. It does not substantially alter the input geodatabase. Output is a new geodatabase *inGeodatabase_*errors.gdb and an HTML file *inGeodatabase*_topologyReport.html. For each feature dataset evaluated the output geodatabase will contain a feature dataset of the same name that contains feature classes which identify possible errors of various kinds. Default is that only the GeologicMap feature dataset is evaluated. 
 
@@ -706,7 +706,7 @@ These inventories may be useful to find digitizing errors and to help enforce ca
 
 ### <a name="TranslateToShapefiles"></a>Translate To Shapefiles
 
-*[GeMS_TranslateToShape_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_TranslateToShape_Arc10.py)*
+*[GeMS_TranslateToShape_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_TranslateToShape_AGP2.py)*
 
 **Translate to Shapefiles** converts a GeMS-style ArcGIS geodatabase to two shapefile packages:
 
@@ -724,7 +724,7 @@ Output is written to directories *DBName*-simple and *DBName*-open, where *DBNam
 
 ### <a name="ValidateDatabase"></a>Validate Database
 
-*[GeMS_ValidateDatabase_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ValidateDatabase_Arc10.py)*
+*[GeMS_ValidateDatabase_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ValidateDatabase_AGP2.py)*
 
 **Validate Database** audits a geodatabase for conformance with the GeMS schema. Checks include:
 
@@ -757,7 +757,7 @@ Output is written to directories *DBName*-simple and *DBName*-open, where *DBNam
 
 Output is written to file *Output_workspace*/*Input_geodatabase*_Validation.html. 
 
-For more information, check tail of file [GeMS_ValidateDatabase_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ValidateDatabase_Arc10.py). 
+For more information, check tail of file [GeMS_ValidateDatabase_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ValidateDatabase_AGP2.py). 
 
 ***If ArcMap is open, any joins--e.g., MapUnitPolys to DescriptionOfMapUnits--may need to be removed. If, when running this script from ArcMap, it fails to inventory some feature classes, try running it from ArcCatalog.*** 
 
