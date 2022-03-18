@@ -1,6 +1,6 @@
 GeMS Tools is an ArcGIS toolbox to facilitate working with the GeMS geologic map database schema. 
 
-To obtain and install GeMS Tools, see the README file at https://github.com/usgs/GeMS_Tools. 
+To obtain and install GeMS Tools, see the README file at https://github.com/usgs/gems-tools-pro. 
 
 If you see a need to correct or improve this documentation, please feel free to edit this wiki.  
 
@@ -43,7 +43,7 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 
 ### <a name="(re)SetIDvalues"></a>(re)Set ID values
 
-*[GeMS_reID_Arc10.py](https://github.com/usgs/GeMS_Tools/blob/master/Scripts/GeMS_reID_Arc10.py)*
+*[GeMS_reID_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_reID_Arc10.py)*
 
 GeMS-style databases use _ID values as primary keys; these values are repeated as ID values in other tables where they serve as foreign keys to tie tables together. **(re)Set ID values** generates _ID values while preserving any links established by existing _ID and ID values. As an option, GUIDs may be substituted for plain-text _ID and ID values.
 
@@ -59,7 +59,7 @@ This script modifies the input geodatabase. Make a backup copy (with **Compact a
 
 ### <a name=".docxtoDMU"></a>.docx to DMU
 
-*[GeMS_DocxToDMU_Arc10.py](https://github.com/usgs/GeMS_Tools/blob/master/Scripts/GeMS_DMUtoDocx_Arc10.py)*
+*[GeMS_DocxToDMU_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_DMUtoDocx_Arc10.py)*
 
 .docx to DMU** extracts DMU paragraphs from a Microsoft Word document, calculates values of HierarchyKey, and partially fills in table DescriptionOfMapUnits. Non-DMU paragraphs (the rest of the map text) are ignored. The Word document must be formatted using the paragraph styles in USGS Pubs template *MapManuscript_v1-0_04-11.dotx*, which is included with in folder *GeMS_Tools/Docs*.
 
@@ -291,7 +291,15 @@ You want ISO metadata? Change your Metadata Style and fix records using the ArcC
 
 ### <a name="GeologicNamesCheck"></a>Geologic Names Check
 
-Coming soon!
+*[GeMS_GeolexCheck_Arc10.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_GeolexCheck_AGP2.py)*
+
+**Geologic Names Check** automates some of the steps in a geologic names review as required by USGS publication policy. It searches within the DescriptionOfMapUnits table for names and usages found in the U.S. Geologic Names Lexicon (Geolex) and provides a report template in spreadsheet form for the author and reviewer to use during the review process. The tool reports the Geolex names found within the map unit name, the usages associated with those names, and whether or not the author's choice of geographic extent matches that found in Geolex. Comparisons of age and status (formal vs informal) are not at this time considered.
+
+| **Parameter**                         | **Explanation**                                              | **Data Type** |
+| ------------------------------------- | ------------------------------------------------------------ | ------------- |
+| DMU_Table                     | a GeMS-compliant DescriptionOfMapUnits table. Must contain the fields HierarchyKey, MapUnit, Fullname, and Age, but they may be in any order, need not be CamelCase, and there are no special constraints on how the values are formatted. Values in Name are searched for Geolex names. If no Geolex name is found, Fullname is searched as well.        | Table  |
+| States_extent | One or more (comma separated) state or territory abbreviations. Examples are "WA", or "ID,OR,WA" | String |
+| open_report_when_completed? (optional) | Should the Excel report file be opened when the script has finished running? | Boolean|
 
 ### <a name="InclinationNumbers"></a>Inclination Numbers
 
