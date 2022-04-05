@@ -18,7 +18,7 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 | [(re)Set ID values](#(re)SetIDvalues) |                         |                   | X |  |
 | [.docx to DMU](#.docxtoDMU) | X | |  |  |
 | [Attribute by Key Values](#AttributebyKeyValues) | X | | |  |
-| [Build Metadata](#BuildMetadata) | | | | X |
+| [Build Metadata](#BuildMetadata) | | | X | |
 | [Compact and Backup](#CompactAndBackup) | X | | X |  |
 | [Create New Database](#CreateNewDatabase) | X | | |  |
 | [Deplanarize CAF](#DeplanarizeCAF) | X | | |  |
