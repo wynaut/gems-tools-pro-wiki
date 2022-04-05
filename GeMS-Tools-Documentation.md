@@ -18,11 +18,11 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 | [(re)Set ID values](#(re)SetIDvalues) |                         |                   | X |  |
 | [.docx to DMU](#.docxtoDMU) | X | |  |  |
 | [Attribute by Key Values](#AttributebyKeyValues) | X | | |  |
+| [Build Metadata](#BuildMetadata) | | | | X |
 | [Compact and Backup](#CompactAndBackup) | X | | X |  |
 | [Create New Database](#CreateNewDatabase) | X | | |  |
 | [Deplanarize CAF](#DeplanarizeCAF) | X | | |  |
 | [DMU to .docx](#DMUtodocx) |  | | X | X |
-| [FGDC CSDGM2 Metadata](#FGDCCSDGM2) |  | | X |  |
 | [Geologic Names Check](#GeologicNamesCheck) |  | | X | X |
 | [Inclination Numbers](#InclinationNumbers) |  | X | |  |
 | [Make Polygons](#MakePolygons) | X | | |  |
@@ -39,8 +39,6 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 | [Translate to Shapefiles](#TranslateToShapefiles) |  | | X |  |
 | [Validate Database](#ValidateDatabase) |  | | X | X |
 
-
-
 ### <a name="(re)SetIDvalues"></a>(re)Set ID values
 
 *[GeMS_reID_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_reID_AGP2.py)*
@@ -54,8 +52,6 @@ This script modifies the input geodatabase. Make a backup copy (with **Compact a
 | Input_GeMS-style_geodatabase | The geodatabase for which _ID values are to be created or recreated. Must exist. May be file geodatabase (.gdb) or personal geodatabase (.mdb). | Workspace     |
 | Use_GUIDs (Optional)         | Default is unchecked (false),which creates _ID values as several characters which denote the table (e.g., MUP for MapUnitPolys) followed by consecutive zero-padded integers: MUP0001, MUP0002, MUP0003, etc. If checked, creates GUIDs (Globally-Unique IDs which are many-byte nonsense strings) for _ID values. | Boolean       |
 | Do_not_reset_DataSource_IDs  | If unchecked, resets values of DataSources_ID and all DataSourcesID, LocationSourceID, AnalysisSourceID and similar that refer to DataSources_ID. Default is checked, which leaves these values unchanged. | Boolean       |
-
-
 
 ### <a name=".docxtoDMU"></a>.docx to DMU
 
@@ -78,9 +74,6 @@ Values of UnitLabl in the manuscript must be unique.
 
 - The [lxml](http://lxml.de) package must be present on the host computer. Easiest to install using the Python pip utility. Note that you may want to install it for both 64-bit and 32-bit Pythons (e.g., C:\Python27\ArcGISx6410.5and C:\Python27\ArcGIS10.5). 
 - *[docxModified.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/docxModified.py)*, which is included in the GeMS toolbox
-
-
-
 
 ### <a name="AttributebyKeyValues"></a>Attribute by Key Values
 
@@ -141,7 +134,52 @@ This file can also be created and edited with a spreadsheet program (e.g., Libre
 
 Tool **Attribute By Key Values** can be run multiple times during the course of building a geodatabase (recommended) or just once at the end.
 
+### <a name="BuildMetadata"></a>Build Metadata
 
+*[GeMS_FGDCMetadata_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_FGDCMetadata_AGP2.py)*
+
+**Build Metadata** helps elaborate [FGDC CSDGM2](https://www.fgdc.gov/metadata) metadata for a GeMS-style geodatabase. The database can be an ArcGIS file geodatabase or a geopackage.
+
+A fully GeMS-compliant database contains the information required for many elements in CSDGM2 metadata, but which must nonetheless be transcribed into a separate file. Likewise, definitions of GeMS-required tables and fields can be found in the [GeMS schema publication](https://scgeology.github.io/GeMS/index.html), but are also required in the metadata. This tool tries to automate the creation of as many of those elements as possible and also adds boilerplate language appropriate to the schema.
+
+Note that this ArcGIS Pro tool does not use the same workflow as the three ArcMap metadata tools and the output is different. The result of running all of the ArcMap tools is a separate metadata record for each table in the database and the metadata are imported back into the embedded ArcGIS metadata. Instead, this tool writes out one database-level record wherein all feature classes and tables are enumerated and defined. This is more in-line with how metadata describing USGS data releases that consist of several related tables are being published. Though this makes for longer metadata records, there is only one to have to look through and keep associated with the database. Furthermore, because the GeMS submittal process does not require embedded metadata (and is moot if submitting a geopackage), this tool forgoes that step. But let us know if you think a tool like that would be useful or would like to add one of your own creation to the toolbox.
+
+To use this tool, first decide if ArcGIS embedded metadata is to be used as the starting point for building the rest of the metadata or if metadata are to be created from scratch. This only applies to file geodatabases as ArcGIS metadata cannot be stored inside geopackages. Note that feature class and table-specific metadata will not be exported; only the metadata embedded in the top-level file-geodatabase container.
+
+If you have added non-GeMS tables or fields to the database, you must provide Entity, Attribute, and Domain definitions and definition sources in the metadata for those items. You can do this in a metadata editor after running the tool or you may provide a path at runtime to a file in which the definitions are stored. The definitions must be formatted in python dictionaries. Examples are [provided in ```my_definitions.py```](https://github.com/usgs/gems-tools-pro/blob/master/Resources/my_definitions.py) in the Resources folder of the toolbox.
+
+To either the embedded or built-from-scratch metadata, the tool will add:
+
+* sources from DataSources to Source Information elements (depending on some choices outlined below)
+* Entity, Attribute, and Domain Definitions and Definition Sources from built-in GeMS defintions and, if specified, a custom definitions file
+* a Bounding Coordinates element built from the maximum Bounding Coordinates of ```MapUnitPolys``` and ```ContactsAndFaults```
+* a Spatial Data Organization Information element (which ArcGIS Pro does not export)
+* a Spatial Reference element derived from ```MapUnitPolys``` (which ArcGIS Pro [does not export](https://support.esri.com/en/bugs/nimbus/QlVHLTAwMDEyNDI5NA==)). There can be only one spatial reference section in CSDGM2 metadata so other spatial references, of basedata or cross sections, for instance, will be ignored.
+* GeMS-related text to Supplemental Information, Attribute Accuracy, and Horizontal Positional Accuracy Report elements
+
+If there are missing Entity, Attribute, or Domain definitions, you may choose to leave them blank or replaced with a flag, "MISSING", so that you can find them in a text editor. But if you are using a validating metadata editor, such as Metadata Wizard, those occurrences of "MISSING", though meaningless for the metadata, will not be considered invalid.. It may be best to leave missing definitions blank so that they can be flagged as errors. Metadata Wizard, at least, will color those empty text entry boxes red so you can easily see what is still required.
+
+You can export the metadata at this point and fill in other required sections in a metadata editor or you can specify a path to a template metadata file to which the metadata generated so far should be added.
+
+When working in ArcGIS, every geoprocessing task run on a file geodatabase is recorded as a Process Step in Lineage. This section of the metadata is arguably better used for recording less granular steps in the worklow, so if you find this level of detail distracting, you can choose to have the steps removed completely or replaced by process steps recorded in the template metadata.
+
+For validation of the exported metadata, the tool sends the file to the [USGS Geospatial Metadata Validation Service[(https://www1.usgs.gov/mp/)] API. The API re-orders any out-of-order elements, re-writing the XML file in the process, and outputs an error log and, if chosen, a more human-readable version of the metadata.
+
+At this point, open the output xml file, which will be in the same folder as the source database, in your favorite metadata editor and fill in the blanks, validating either in the application or with the USGS metadata service until you get compliant metadata. It is NOT recommended to finalize the metadata in ArcGIS. On import, ArcGIS will convert the FGDC-CSDGM2 metadata into ESRI metadata and though you can edit individual CSDGM2 elements, upon export, you will likely not get the results you expect.
+
+Finally, have the record reviewed by a skilled metadata reviewer.
+
+
+| Parameter Label | Parameter Name | Explanation | Data Type |
+| --------------|-------------- | ------------------------- | --------- |
+| GeMS database | dataset |  GeMS-compliant file geodatabase or geopackage  | path to dataset |
+| Start with embedded metadata? | embedded_metadata | Should metadata embedded in a file geodatabase be exported as the starting document to which GeMS metadata will be added? Boolean. False by default. Optional. | boolean      |
+| Custom Definition file | my_defs_file | Path to a python (.py ) file storing dictionaries of definitions of non-GeMS tables and fields. See my_definitions.py in the resources sub-folder of the GeMS Tools folder as an example. Optional. | path to file|
+| template | Template metadata | Path to an XML file with reusable boilerplate language that will be added to the output metadata. This file will not be overwritten. Optional. | path to file |
+| Sources | sources | Which set(s) of sources should be saved in the output metadata? Sources can come from the DataSources table, the Data Source elements in the embedded metadata, and/or the Source_Information elements in the template metadata. Choices, depending on previous parameter choices, are:<ul><li>save only DataSources</li><li>save only embedded sources</li><li>save only template sources</li><li>save DataSources and embedded sources</li><li>save DataSources and template sources</li><li>save embedded and template sources</li><li>save all sources</li><li>save no sources</li></ul> Default is 'save only DataSources'. Optional | string |
+| History (process steps) | history | Which record of processing history should be saved in the output metadata? History can come from the Geoprocessing History elements in the embedded metadata or Process_Step elements in template metadata. Choices are:<ul><li>clear all history</li><li>save only template history</li><li>save only embedded history</li><li>save all history</li></ul> Default is 'clear all history'. Optional. | string |
+| Missing definitions and sources | missing | How should the Definition and Definition_Source elements for Entities (tables) and Attributes (fields) be filled out if no definition is found? Choices are:<ul><li>leave blank <em>(seen as an error when validating; easy to find in Metadata Wizard)</em><li>flag as 'MISSING' <em>(not seen as an error when validating but can be easier to find in a text editor)</em></li></ul> Default is 'leave blank'. Optional. Use a custom definitions file to automate the creation of definitions and source text. | string |
+| Export .txt version of metadata? | export_text | Should a text (more human readable) version of the output metadata by exported? Boolean. False by default. Optional. | boolean |
 
 ### <a name="CompactAndBackup"></a>Compact and Backup
 
@@ -184,8 +222,6 @@ This tool may take several minutes to run.
 - *[GeMS_definitions.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_Definition.py)*
 
 
-
-
 ### <a name="DeplanarizeCAF"></a>Deplanarize CAF
 
 *[GeMS_Deplanarize_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_Deplanarize_AGP2.py)*
@@ -205,8 +241,6 @@ Nodes are named by their XY coordinates recorded to within 0.01 map units. We as
 | **Parameter**     | **Explanation**                     | **Data Type** |
 | ----------------- | ----------------------------------- | ------------- |
 | Input_geodatabase | Should be a GeMS-style geodatabase. | Workspace     |
-
-
 
 ### <a name="DMUtodocx"></a>DMU to .docx
 
@@ -238,55 +272,8 @@ Nodes are named by their XY coordinates recorded to within 0.01 map units. We as
 
 ##### Significant dependencies: 
 
-- The lxml package (see [http:lxml.de](http://lxml.de); look for Windows binary to install) must be present on the host computer. Easiest to install using the Python pip utility. Note that you may want to install it for both 64-bit and 32-bit Pythons (e.g., C:\Python27\ArcGISx6410.5 and C:\Python27\ArcGIS10.5)
 - *[docxModified.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/docxModified.py)*,which is included in the *GeMS_Toolbox/Scripts* directory
 - *MSWordDMUtemplate*, which is a directory within the GeMS Tools\Resources directory. This directory provides essential elements of a Microsoft Word document that uses the paragraph styles defined in USGS Pubs template *MapManuscript_v1-0_04-11.dotx*
-
-
-
-
-
-### <a name="FGDCCSDGM2"></a>FGDC CSDGM2 Metadata
-
-*[GeMS_MetadataCSDGM2_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_MetadataCSDGM2_AGP2.py)*
-
-**FGDC CSDGM2 Metadata** helps elaborate CSDGM2-style metadata for all elements of a GeMS-style geodatabase. 
-
-Writing CSDGM2-style metadata for a geologic-map database presents several challenges:
-
-1.    Dataset citation, description, status, spatial domain, keywords, point of contact, data quality, spatial reference framework, and distribution information should be correct and useful.
-
-2.    Entity descriptions and entity-attribute information should be correct and useful. 
-
-3.    Similar, but not identical, metadata records should be created for the database as a whole and each element (table, feature dataset, and feature class) within the database.
-
-4.    Metadata should somehow depict the composite nature of a geologic-map database which typically contains several nested datasets. CSDGM2 is most apt for a single dataset. 
-
-5.    Metadata should be formally correct.
-
-This script addresses challenges 2, 3, 4, and 5. Entity descriptions and entity-attribute information are supplied from the GeMS documentation and the information contained within database tables DescriptionOfMapUnits, Glossary, and DataSources. You complete a single master metadata record (that for GeologicMap) and other metadata records are constructed by the script. The composite nature of the database is briefly described in a Supplemental Information statement that resides within the Description branch of Identifying Information. Because construction of metadata is scripted AND final records are passed through ArcGIS, they should be formally correct, though you might check this with the mp data parser. 
-
-You are still responsible for meeting challenge 1. To use this tool, 
-
-- Run script Validate Database to ensure that the database is complete and there are no missing DMU, Glossary, or DataSources entries.
-
-- In ArcCatalog, go to Customize>Options>Metadata and set Metadata Style to "FGDC CSDGM Metadata". OK and exit. 
-
-- In ArcCatalog, use the ArcGIS metadata editor to complete the record for the Geologic Map feature dataset. Save. NOTE THAT whatever errors or you create in this master metadata record will be faithfully propagated to metadata records for all parts of the database!
-
-- Run this script from the Windows command line. 
-
-- Look at file *geodatabasename*-metadataLog.txt to see what parts of which metadata records need to be completed by hand using the ArcCatalog metadata editor. This will occur wherever you extend the database schema beyond the schema outlined in the GeMS documentation. *If you expect to make metadata for many databases that have the same extensions, modify file GeMS_Definition.py to include descriptions of your extensions.*
-
-- Inspect metadata records in ArcCatalog (the Description tab) to see that they are complete. 
-
-
-You want ISO metadata? Change your Metadata Style and fix records using the ArcCatalog metadata editor. Export as ISO of your flavor, insofar as ArcCatalog allows. Let us know how this works.
-
-| Parameter                       | Explanation                                                  | Data Type |
-| ------------------------------- | ------------------------------------------------------------ | --------- |
-| GeMS-style_geodatabase          |                                                              | Workspace |
-| definitionExtensions (Optional) | Optional: file with extensions to definitions given in GeMS_Definitions.py. Useful for persistent entity and field descriptions, amongst other things. See file [my_GeMSDefinitions.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/my_GeMSDefinitions.py), in Scripts directory of GeMS_Tools, for an example and further directions. | File      |
 
 
 ### <a name="GeologicNamesCheck"></a>Geologic Names Check
