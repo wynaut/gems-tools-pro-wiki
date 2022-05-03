@@ -144,6 +144,16 @@ A fully GeMS-compliant database contains the information required for many eleme
 
 Note that this ArcGIS Pro tool does not use the same workflow as the three ArcMap metadata tools and the output is different. The result of running all of the ArcMap tools is a separate metadata record for each table in the database and the metadata are imported back into the embedded ArcGIS metadata. Instead, this tool writes out one database-level record wherein all feature classes and tables are enumerated and defined. This is more in-line with how metadata describing USGS data releases that consist of several related tables are being published. Though this makes for longer metadata records, there is only one to have to look through and keep associated with the database. Furthermore, because the GeMS submittal process does not require embedded metadata (and is moot if submitting a geopackage), this tool forgoes that step. But let us know if you think a tool like that would be useful or would like to add one of your own creation to the toolbox.
 
+**Dependencies** 
+
+Because of a [bug](https://support.esri.com/en/bugs/nimbus/QlVHLTAwMDEyNDI5NA==) in ArcGIS Pro, this tool relies on the open-source GDAL library to collect some of the metadata required by the CSDGM standard for geospatial data. This library is installed with ArcGIS Pro so no extra installation is necessary but you will likely need to configure one environment variable. If you get an error when running the tool that advises you to set ```PROJ_LIB``` to the location of proj.db, follow the steps below:
+
+1. Locate proj.db and copy the path to it. Look for it within the ArcGIS Pro installation folder at ```ArcGIS\Pro\Resources\pedata\gdaldata```.
+2. In the Windows Search box on the taskbar, type 'environment variable' and click on the result that reads 'Edit environment variables for your account' (you can 'Edit the system environment variables' if you like but you will probably need admin privileges).
+3. Click New and use ```PROJ_LIB``` for the Variable name and the path you copied in step 1. for the Variable value.
+4. Close all open dialogs and re-start ArcGIS Pro.
+
+***Use***
 To use this tool, first decide if ArcGIS embedded metadata is to be used as the starting point for building the rest of the metadata or if metadata are to be created from scratch. This only applies to file geodatabases as ArcGIS metadata cannot be stored inside geopackages. Note that feature class and table-specific metadata will not be exported; only the metadata embedded in the top-level file-geodatabase container.
 
 If you have added non-GeMS tables or fields to the database, you must provide Entity, Attribute, and Domain definitions and definition sources in the metadata for those items. You can do this in a metadata editor after running the tool or you may provide a path at runtime to a file in which the definitions are stored. The definitions must be formatted in python dictionaries. Examples are [provided in ```my_definitions.py```](https://github.com/usgs/gems-tools-pro/blob/master/Resources/my_definitions.py) in the Resources folder of the toolbox.
