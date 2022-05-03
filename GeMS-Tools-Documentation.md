@@ -154,6 +154,7 @@ Because of a [bug](https://support.esri.com/en/bugs/nimbus/QlVHLTAwMDEyNDI5NA==)
 4. Close all open dialogs and re-start ArcGIS Pro.
 
 **Use**
+
 To use this tool, first decide if ArcGIS embedded metadata is to be used as the starting point for building the rest of the metadata or if metadata are to be created from scratch. This only applies to file geodatabases as ArcGIS metadata cannot be stored inside geopackages. Note that feature class and table-specific metadata will not be exported; only the metadata embedded in the top-level file-geodatabase container.
 
 If you have added non-GeMS tables or fields to the database, you must provide Entity, Attribute, and Domain definitions and definition sources in the metadata for those items. You can do this in a metadata editor after running the tool or you may provide a path at runtime to a file in which the definitions are stored. The definitions must be formatted in python dictionaries. Examples are [provided in ```my_definitions.py```](https://github.com/usgs/gems-tools-pro/blob/master/Resources/my_definitions.py) in the Resources folder of the toolbox.
@@ -164,7 +165,7 @@ To either the embedded or built-from-scratch metadata, the tool will add:
 * Entity, Attribute, and Domain Definitions and Definition Sources from built-in GeMS defintions and, if specified, a custom definitions file
 * a Bounding Coordinates element built from the maximum Bounding Coordinates of ```MapUnitPolys``` and ```ContactsAndFaults```
 * a Spatial Data Organization Information element (which ArcGIS Pro does not export)
-* a Spatial Reference element derived from ```MapUnitPolys``` (which ArcGIS Pro [does not export](https://support.esri.com/en/bugs/nimbus/QlVHLTAwMDEyNDI5NA==)). There can be only one spatial reference section in CSDGM2 metadata so other spatial references, of basedata or cross sections, for instance, will be ignored.
+* a Spatial Reference element derived from ```MapUnitPolys```. There can be only one spatial reference section in CSDGM2 metadata so other spatial references, of basedata or cross sections for example, will be ignored.
 * GeMS-related text to Supplemental Information, Attribute Accuracy, and Horizontal Positional Accuracy Report elements
 
 If there are missing Entity, Attribute, or Domain definitions, you may choose to leave them blank or replaced with a flag, "MISSING", so that you can find them in a text editor. But if you are using a validating metadata editor, such as Metadata Wizard, those occurrences of "MISSING", though meaningless for the metadata, will not be considered invalid.. It may be best to leave missing definitions blank so that they can be flagged as errors. Metadata Wizard, at least, will color those empty text entry boxes red so you can easily see what is still required.
