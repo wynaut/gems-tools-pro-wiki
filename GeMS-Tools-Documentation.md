@@ -148,7 +148,7 @@ Note that this ArcGIS Pro tool does not use the same workflow as the three ArcMa
 
 Because of a [bug](https://support.esri.com/en/bugs/nimbus/QlVHLTAwMDEyNDI5NA==) in ArcGIS Pro, this tool relies on the open-source GDAL library to collect some of the metadata required by the CSDGM standard for geospatial data. This library is installed with ArcGIS Pro so no extra installation is necessary but you will likely need to configure one environment variable. If you get an error when running the tool that advises you to set ```PROJ_LIB``` to the location of proj.db, follow the steps below:
 
-1. Locate proj.db and copy the path to it. Look for it within the ArcGIS Pro installation folder at ```ArcGIS\Pro\Resources\pedata\gdaldata```.
+1. Locate proj.db and copy the path to the folder it is in. It will probably be within the ArcGIS Pro installation folder at ```ArcGIS\Pro\Resources\pedata\gdaldata``` but could be somewhere else.
 2. In the Windows Search box on the taskbar, type 'environment variable' and click on the result that reads 'Edit environment variables for your account' (you can 'Edit the system environment variables' if you like but you will probably need admin privileges).
 3. Click New and use ```PROJ_LIB``` for the Variable name and the path you copied in step 1. for the Variable value.
 4. Close all open dialogs and re-start ArcGIS Pro.
