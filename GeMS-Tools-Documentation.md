@@ -153,7 +153,7 @@ Because of a [bug](https://support.esri.com/en/bugs/nimbus/QlVHLTAwMDEyNDI5NA==)
 3. Click New and use ```PROJ_LIB``` for the Variable name and the path you copied in step 1. for the Variable value.
 4. Close all open dialogs and re-start ArcGIS Pro.
 
-***Use***
+**Use**
 To use this tool, first decide if ArcGIS embedded metadata is to be used as the starting point for building the rest of the metadata or if metadata are to be created from scratch. This only applies to file geodatabases as ArcGIS metadata cannot be stored inside geopackages. Note that feature class and table-specific metadata will not be exported; only the metadata embedded in the top-level file-geodatabase container.
 
 If you have added non-GeMS tables or fields to the database, you must provide Entity, Attribute, and Domain definitions and definition sources in the metadata for those items. You can do this in a metadata editor after running the tool or you may provide a path at runtime to a file in which the definitions are stored. The definitions must be formatted in python dictionaries. Examples are [provided in ```my_definitions.py```](https://github.com/usgs/gems-tools-pro/blob/master/Resources/my_definitions.py) in the Resources folder of the toolbox.
