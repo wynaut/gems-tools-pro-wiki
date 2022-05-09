@@ -29,8 +29,6 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 | [Make Topology](#MakeTopology) | X | | |  |
 | [MapOutline](#MapOutline) | X | | |  |
 | [Project Map Data to Cross Section](#ProjectMap) | X | | |  |
-| [Project Points to Cross Section](#ProjectPoints) | X | | |  |
-| [Purge Metadata](#PurgeMetadata) |  | | X |  |
 | [Relationship Classes](#RelationshipClasses) |  | | X |  |
 | [Set PlotAtScale Values](#SetPlotAtScaleValues) |  | X | X |  |
 | [Set Symbol Values](#SetSymbolValues) |  | X | X |  |
@@ -445,58 +443,6 @@ This script also creates empty GeMS feature classes CSxxContactsAndFaults, CSxxM
 | Force_exit                            | If checked, use sys.exit() to force an exit with error. Allows re-run of tool without re-entry of all parameters. Default is false (unchecked). | Boolean                      |
 | Scratch_workspace (Optional)          | If blank, output feature dataset will be used as scratch workspace. Temporary feature classes have names that begin with 'xxx'. Existing feature classes with these names will be overwritten. | Workspace or Feature Dataset |
 | Save_intermediate_data                | Default = NO (unchecked). This script creates temporary tables in the input geodatabase and temporary feature classes in the scratch workspace (default is the output feature dataset). If this box is unchecked, these tables and feature classes will not be deleted when the script finished. Check this box if you need these temporary data for troubleshooting. Note that using the default scratch workspace, saving intermediate data and then running the tool to create another feature dataset will not work. You must first delete the temporary data files within the first feature dataset. | Boolean                      |
-
-
-
-### <a name="ProjectPoints"></a>Project Points to Cross Section
-
-*[GeMS_ProjectPtsToCrossSection_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ProjectPtsToCrossSection_AGP2.py)*
-
-**Project Points to Cross Section** projects points within a specified horizontal distance of a cross-section line into the vertical cross-section plane. Output is a feature class with attributes *className*_ID, ID, and DistanceFromSection. The source point feature class may then be joined to the output feature class--using ID and _ID as the join fields--to make the entire set of source feature class attributes available. The cross-section line must be straight!
-
-If points are for orientation data (i.e., have an Azimuth attribute), the apparent dip (or plunge) of each orientation is calculated, as well as the obliquity of the measurement to the section line and the angle (PlotAzimuth) at which a symbol should be rotated. 
-
-Script **ProjectMap Data To Cross Section** is likely to be more useful. It will project data to a zig-zag or curved section line. 
-
-| **Parameter**                                 | **Explanation**                                              | **Data Type**                |
-| --------------------------------------------- | ------------------------------------------------------------ | ---------------------------- |
-| Featureclass_that_contains_cross-section_line | Line feature class that contains the cross-section line. Typically, the CartographicLines feature class within the GeologicMap feature dataset. | Feature Class                |
-| Cross-section_Label                           | One line needs to be selected from the feature class that contains cross-section lines. Selection is on the value of the "Label" field. Cross-section lines should have unique Label values. | String                       |
-| Point_class_to_be_projected                   | Point feature class that is to be projected. May be well points, OrientationPoints, or other. | Feature Class                |
-| Key_field                                     | Field in point class to be projected that serves as a primary key. If there is an _ID field in the point feature class, Key_field will be automatically reset to this _ID field. | Field                        |
-| Vertical_exaggeration                         | Desired vertical exaggeration. A real number. Default value is 1.0. | Long                         |
-| DEM                                           | Digital elevation model that overlaps the points to be projected. Vertical units should be same as horizontal units, or the vertical exaggeration will be incorrect. | Raster Dataset               |
-| Max_projection_distance                       | Distance from cross-section line within which points will be projected. Value is in map units. | Long                         |
-| Output_feature_dataset                        | Location of output data. Suggest use of one of the GeMS-defined feature datasets CrossSectionA, CrossSectionB, ... If appropriate feature dataset is not present, quit and run Create New Database tool to create empty cross-section feature datasets, which can then be copied and pasted into the existing map geodatabase. | Feature Dataset              |
-| Output_feature_class_name                     | Name of the output featureclass. Any existing feature class with this name will be overwritten. Note that feature class names must be unique within a geodatabase. This suggests that, if there may be multiple cross sections, the name of the enclosing feature dataset should be incorporated within the feature class name. | String                       |
-| Scratch_workspace (Optional)                  | If left blank, defaults to the output feature dataset. Several feature classes (xxx1, xxx2, and xxx4) will be written to this workspace and then deleted. Any existing feature classes with these names will be deleted. | Workspace or Feature Dataset |
-
-
-
-### <a name="PurgeMetadata"></a>Purge Metadata
-
-*[GeMS_PurgeMetadata_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_PurgeMetadata_AGP2.py)*
-
-Purges metadata of geoprocessing history (and probably any other elements that don't have a place within the FGDC CSDGM2 metadata schema). Steps through all feature datasets, feature classes within feature datasets, tables ,and the dataset as a whole; for each item this script:
-
-1. Exports existing metadata as FGDC CSDGM2 metadata
-2. Clears metadata with USGS EGIS Clear Metadata tool
-3. Imports exported CSDGM2 metadata
-
-Note that feature classes that are not within a feature dataset are not processed. 
-
-This script will leave the directory that hosts the geodatabase with amultitude of .xml metadata files
-
-| **Parameter**               | **Explanation**                                              | **Data Type* |
-| --------------------------- | ------------------------------------------------------------ | ------------ |
-| Input_geodatabase           | An existing geodatabase. May be a file (.gdb) or personal (.mdb) geodatabase. | Workspace    |
-| Output_directory (Optional) | Where .xml metadata files are created. If not specified, defaults to directory that hosts input geodatabase. | Folder       |
-
-##### Significant dependencies
-
-The USGS EGIS tools must be installed for this script to work. 
-
-
 
 ### <a name="RelationshipClasses"></a>Relationship Classes
 
