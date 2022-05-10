@@ -259,9 +259,9 @@ Nodes are named by their XY coordinates recorded to within 0.01 map units. We as
 
 Use the following style names for ParagraphStyle in your DescriptionOfMapUnits table:
 
-* DMU-Heading1 (number may up to 5)
-* DMUUnit11stafterheading
-* DMUunit1 (number may be up to 5)
+* ```DMU-Heading1``` (number may up to 5)
+* ```DMUUnit11stafterheading```
+* ```DMUunit1``` (number may be up to 5)
 
 Put heading values in the Name field, accompanying headnote text (if any) in the Description field, and use the appropriate DMU-Heading style in ParagraphStyle.
 
