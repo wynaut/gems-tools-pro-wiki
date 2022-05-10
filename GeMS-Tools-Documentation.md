@@ -172,7 +172,7 @@ You can export the metadata at this point and fill in other required sections in
 
 When working in ArcGIS, every geoprocessing task run on a file geodatabase is recorded as a Process Step in Lineage. This section of the metadata is arguably better used for recording less granular steps in the worklow, so if you find this level of detail distracting, you can choose to have the steps removed completely or replaced by process steps recorded in the template metadata.
 
-For validation of the exported metadata, the tool sends the file to the [USGS Geospatial Metadata Validation Service[(https://www1.usgs.gov/mp/)] API. The API re-orders any out-of-order elements, re-writing the XML file in the process, and outputs an error log and, if chosen, a more human-readable version of the metadata.
+For validation of the exported metadata, the tool sends the file to the [USGS Geospatial Metadata Validation Service](https://www1.usgs.gov/mp/) API. The API re-orders any out-of-order elements, re-writing the XML file in the process, and outputs an error log and, if chosen, a more human-readable version of the metadata.
 
 At this point, open the output xml file, which will be in the same folder as the source database, in your favorite metadata editor and fill in the blanks, validating either in the application or with the USGS metadata service until you get compliant metadata. It is NOT recommended to finalize the metadata in ArcGIS. On import, ArcGIS will convert the FGDC-CSDGM2 metadata into ESRI metadata and though you can edit individual CSDGM2 elements, upon export, you will likely not get the results you expect.
 
