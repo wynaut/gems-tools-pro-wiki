@@ -664,50 +664,64 @@ Output is written to directories *DBName*-simple and *DBName*-open, where *DBNam
 | Input_geodatabase | An existing geodatabase. May be a file (.gdb) or personal (.mdb) geodatabase. | Workspace     |
 | Output_workspace  | Must be an existing folder. Output folders *DBName*-open and *DBName*-simple will be written here, as well as temporary geodatabase xx*DBName*. | Folder        |
 
- 
-
 ### <a name="ValidateDatabase"></a>Validate Database
 
 *[GeMS_ValidateDatabase_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ValidateDatabase_AGP2.py)*
 
-**Validate Database** audits a geodatabase for conformance with the GeMS schema. Checks include:
+**Validate Database** audits a geodatabase for conformance with the GeMS schema and reports compliance as “may be **LEVEL 1 COMPLIANT**”, “is **LEVEL 2 COMPLIANT**”, or “is **LEVEL 3 COMPLIANT**”. It also runs mp (metadata parser) to check for formal errors in geodatabase-level FGDC metadata. Note that qualify as LEVEL 2 or LEVEL 3 compliant a database must also be accompanied by a peer-reviewed geologic names report. 
 
-- Schema errors: 
+Compliance criteria are:
 
-  o Are required tables, feature datasets, and feature classes present?
+**Level 1**: 
+* No overlaps or internal gaps in map-unit polygon layer
+* Contacts and faults in single feature class
+* Map-unit polygon boundaries are covered by contacts and faults lines
 
-  o Are required fields present in required and optional tables and feature classes?
+Databases with a variety of schema may meet these criteria. **Validate Database** cannot confirm LEVEL 1 compliance. 
 
-  o Are required fields defined properly?
+**Level 2**:
+* 2.1 Has required elements: nonspatial tables DataSources, DescriptionOfMapUnits, GeoMaterialDict; feature dataset GeologicMap with feature classes ContactsAndFaults and MapUnitPolys
+* 2.2 Required fields within required elements are present and correctly defined
+* 2.3 GeologicMap topology: no internal gaps or overlaps in MapUnitPolys, boundaries of MapUnitPolys are covered by ContactsAndFaults
+* 2.4 All map units in MapUnitPolys have entries in DescriptionOfMapUnits table
+* 2.5 No duplicate MapUnit values in DescriptionOfMapUnit table
+* 2.6 Certain field values within required elements have entries in Glossary table
+* 2.7 No duplicate Term values in Glossary table
+* 2.8 All xxxSourceID values in required elements have entries in DataSources table
+* 2.9 No duplicate DataSources_ID values in DataSources table
 
+**Level 3**
+* 3.1 Table and field definitions conform to GeMS schema
+* 3.2 All map-like feature datasets obey topology rules. No MapUnitPolys gaps or overlaps. No ContactsAndFaults overlaps, self-overlaps, or self-intersections. MapUnitPoly boundaries covered by ContactsAndFaults
+* 3.3 No missing required values
+* 3.4 No missing terms in Glossary
+* 3.5 No unnecessary terms in Glossary
+* 3.6 No missing sources in DataSources
+* 3.7 No unnecessary sources in DataSources
+* 3.8 No map units without entries in DescriptionOfMapUnits
+* 3.9 No unnecessary map units in DescriptionOfMapUnits
+* 3.10 HierarchyKey values in DescriptionOfMapUnits are unique and well formed
+* 3.11 All values of GeoMaterial are defined in GeoMaterialDict. GeoMaterialDict is as specified in the GeMS standard
+* 3.12 No duplicate _ID values
+* 3.13 No zero-length or whitespace-only strings
 
-- Schema extensions: are there tables, feature datasets, feature classes or fields that are not defined by the standard?
+**Validate Database** checks for schema extensions: are there tables, feature datasets, feature classes or fields that are not defined by the standard?
 
-
-- Is required content present?
-- Are _ID values unique?
-- Are all Source values defined in table DataSources?
-- Are there entries in DataSources which are unused elsewhere in the database?
-- Does table Glossary contain all required definitions?
-- Are there terms in table Glossary which are unused elsewhere in the database?
-- What map units are present on the map, in DescriptionOfMapUnits, in CorrelationOfMapUnits, and cross sections? Do they all match?
-- Are there any extra units in DescriptionOfMapUnits?
-- Are HierarchyKey values in DescriptionOfMapUnits properly formatted?
-- Are there any pseudonulls (single-space values) or trailing spaces in text fields?
-
-**Validate Database** lists contents of tables DataSources, DefinitionOfMapUnits, Glossary, and (if present) MiscellaneousMapInformation in human-readable form
+**Validate Database** lists contents of tables DataSources, DefinitionOfMapUnits, Glossary, and (if present) MiscellaneousMapInformation in human-readable form.
 
 **Validate Database** also inventories the database and reports the number of rows, fields, and field definitions for all tables and feature classes. 
 
-Output is written to file *Output_workspace*/*Input_geodatabase*_Validation.html. 
+Output is written to several files in *Output_workspace*: *Input*.gdb-Validation.html, *Input*.gdb-ValidationErrors.html, *Input*.gdb-vFgdcMetadata.txt, *Input*.gdb-vFgdcMetadata.xml, and *Input*.gdb-vFgdcMetadataErrors.txt.  Topology errors are recorded in *Input*_Validation.gdb.
 
-For more information, check tail of file [GeMS_ValidateDatabase_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ValidateDatabase_AGP2.py). 
 
-***If ArcMap is open, any joins--e.g., MapUnitPolys to DescriptionOfMapUnits--may need to be removed. If, when running this script from ArcMap, it fails to inventory some feature classes, try running it from ArcCatalog.*** 
+***If ArcMap is open, any joins--e.g., MapUnitPolys to DescriptionOfMapUnits--may need to be removed. If, when running this script from ArcMap, it fails to inventory some feature classes, try running it from ArcCatalog. If MapUnitPolys, ContactsAndFaults, or a similar feature class in another feature dataset participates in a relationship class--e.g., feature-linked annotation--ArcGIS may crash when the script attempts to copy the feature class into the Validation gdb to check topology.*** 
 
 Note that using this script with a geodatabase with a schema that differs significantly from GeMS may not yield a useful report.
 
 | **Parameter**               | **Explanation**                                              | **Data Type** |
 | --------------------------- | ------------------------------------------------------------ | ------------- |
-| Input_geodatabase           | Can be a file geodatase (.gdb) or a personal geodatabase (.mdb).  .gdb or .mdb extension must be included. | Workspace     |
+| Input_geodatabase           | A file geodatase (.gdb). The .gdb extension must be included. | Workspace     |
 | Output_workspace (optional) | A directory that must exist and be writable. If no directory is specified, defaults to host directory for *Input_geodatabase*. | Folder        |
+| Refresh GeoMaterialDict     | Databases built with earlier versions of the GeMS toolbox will generate numerous errors associated with GeoMaterialDict and GeoMaterial values. Check this box to replace the GeoMaterialDict table in the database with the current version. The GeoMaterials domain (available as a picklist while editing the DescriptionOfMapUnits table) is also replaced. ***This option permanently modifies the geodatabase. Perhaps you should back it up before using this option.*** | Boolean |
+| Skip topology checks        | If checked, potentially time-consuming topology checks will be skipped and database will FAIL level 2 and level 3 compliance checks. This may be useful when testing for other aspects of compliance with the GeMS schema. | Boolean |
+| Delete unused Glossary and DataSources rows | Automatically delete any rows in Glossary and DataSources that describe Terms and Sources that are unused elsewhere in the database. If deleted rows have missing required values these still show up as errors. Rerun the Validate Database script to clear such errors. Deletion of a Glossary row may render a DataSource row unneeded. Rerun the Validate Database script to discover such errors. ***This option permanently modifies the geodatabase. Perhaps you should back it up before using this option.*** | Boolean |
