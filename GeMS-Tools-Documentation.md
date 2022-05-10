@@ -257,6 +257,14 @@ Nodes are named by their XY coordinates recorded to within 0.01 map units. We as
 
 **DMU to .docx** reads table DescriptionOfMapUnits in a GeMS-style geodatabase and creates"Description of Map Units" as a Microsoft Word .docx file using paragraph styles defined in USGS Pubs template *MapManuscript_v1-0_04-11.dotx*. The resulting file is likely to need minor editing, particularly finding and replacing all instances of “--” with em dashes. 
 
+Use the following style names for ParagraphStyle in your DescriptionOfMapUnits table:
+
+* DMU-Heading1 (number may up to 5)
+* DMUUnit11stafterheading
+* DMUunit1 (number may be up to 5)
+
+Put heading values in the Name field, accompanying headnote text (if any) in the Description field, and use the appropriate DMU-Heading style in ParagraphStyle.
+
 **DMU to .docx** supports a minimal set of markup tags in text within the Description field: 
 
 `<b> ... </b>`  	bold
