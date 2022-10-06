@@ -73,5 +73,5 @@ _you are probably connected to a VPN through Pulse Secure. Disconnect and try ag
 
 ## <a name="pull"></a> Use `git pull` to get changes
 Now, whenever you want to update the toolbox, open a command prompt, cd to `gems-tools-pro` and type `git pull`.
-To speed this up you could add [create a batch file](https://www.makeuseof.com/tag/write-simple-batch-bat-file/) and save it in the default directory shown when the command prompt opens or [pin a shortcut to the batch file](https://superuser.com/questions/100249/how-to-pin-either-a-shortcut-or-a-batch-file-to-the-new-windows-7-8-and-10-task) to your taskbar.
+To speed this up you could add [create a batch file](https://www.makeuseof.com/tag/write-simple-batch-bat-file/) and save it in the default directory shown when the command prompt opens or [pin](https://superuser.com/questions/100249/how-to-pin-either-a-shortcut-or-a-batch-file-to-the-new-windows-7-8-and-10-task) a shortcut to the batch file to your taskbar.
 
