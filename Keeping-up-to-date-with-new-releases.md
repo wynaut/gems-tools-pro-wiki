@@ -52,7 +52,7 @@ Type `git --version` at the prompt and you should get a line like `git version 2
 
 ![image](https://user-images.githubusercontent.com/5376315/194182956-5c7025fb-8b9a-47ac-9acb-adf249c86023.png)
 
-### <a name="clone"></a> Clone the repo
+## <a name="clone"></a> Clone the repo
 
 1. With either command prompt window open, navigate to the parent folder where you want the toolbox folder to be using `cd`
 
@@ -73,5 +73,5 @@ _you are probably connected to a VPN through Pulse Secure. Disconnect and try ag
 
 ## <a name="pull"></a> Use `git pull` to get changes
 Now, whenever you want to update the toolbox, open a command prompt, cd to `gems-tools-pro` and type `git pull`.
-To speed this up you could add the `cd` and `git pull` command to a .bat file that resides in the folder shown in the prompt when you open the command prompt window
+To speed this up you could add [create a batch file](https://www.makeuseof.com/tag/write-simple-batch-bat-file/) and save it in the default directory shown when the command prompt opens or [pin a shortcut to the batch file](https://superuser.com/questions/100249/how-to-pin-either-a-shortcut-or-a-batch-file-to-the-new-windows-7-8-and-10-task) to your taskbar.
 
