@@ -676,7 +676,7 @@ Output is written to directories *DBName*-simple and *DBName*-open, where *DBNam
 
 *[GeMS_ValidateDatabase_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ValidateDatabase_AGP2.py)*
 
-**Validate Database** audits a geodatabase for conformance with the GeMS schema and reports compliance as “may be **LEVEL 1 COMPLIANT**”, “is **LEVEL 2 COMPLIANT**”, or “is **LEVEL 3 COMPLIANT**”. It also runs mp (metadata parser) to check for formal errors in geodatabase-level FGDC metadata. Note that qualify as LEVEL 2 or LEVEL 3 compliant a database must also be accompanied by a peer-reviewed geologic names report. 
+**Validate Database** audits a geodatabase for conformance with the GeMS schema and reports compliance as “may be **LEVEL 1 COMPLIANT**”, “is **LEVEL 2 COMPLIANT**”, or “is **LEVEL 3 COMPLIANT**”. It also runs mp (metadata parser) to check for formal errors in geodatabase-level FGDC metadata. Note that to qualify as LEVEL 2 or LEVEL 3 compliant a database must also be accompanied by a peer-reviewed geologic names report. 
 
 Compliance criteria are:
 
