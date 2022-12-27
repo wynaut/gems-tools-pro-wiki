@@ -15,7 +15,7 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 
 | Tool                              | Create and edit database | Cartography | Finalize database | Validate database |
 | --------------------------------- | :----------------------: | :---------------: | :---------: | :-------------------------------: |
-| [(re)Set ID values](#(re)setidvalues) |                         |                   | X |  |
+| [(re)Set ID values](#resetidvalues) |                         |                   | X |  |
 | [.docx to DMU](#.docxtoDMU) | X | |  |  |
 | [Attribute by Key Values](#AttributebyKeyValues) | X | | |  |
 | [Build Metadata](#BuildMetadata) | | | X | |
