@@ -15,9 +15,9 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 
 | Tool                              | Create and edit database | Cartography | Finalize database | Validate database |
 | --------------------------------- | :----------------------: | :---------------: | :---------: | :-------------------------------: |
-| [(re)Set ID values](#resetidvalues) |                         |                   | X |  |
-| [.docx to DMU](#.docxtoDMU) | X | |  |  |
-| [Attribute by Key Values](#AttributebyKeyValues) | X | | |  |
+| [(re)Set ID values](#reset-id-values) |                         |                   | X |  |
+| [.docx to DMU](#docx-to-dmu) | X | |  |  |
+| [Attribute by Key Values](#attribute-by-key-values) | X | | |  |
 | [Build Metadata](#BuildMetadata) | | | X | |
 | [Compact and Backup](#CompactAndBackup) | X | | X |  |
 | [Create New Database](#CreateNewDatabase) | X | | |  |
@@ -37,7 +37,7 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 | [Translate to Shapefiles](#TranslateToShapefiles) |  | | X |  |
 | [Validate Database](#ValidateDatabase) |  | | X | X |
 
-### (re)SetIDvalues
+### (re)Set ID Values
 
 *[GeMS_reID_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_reID_AGP2.py)*
 
@@ -51,7 +51,7 @@ This script modifies the input geodatabase. Make a backup copy (with **Compact a
 | Use_GUIDs (Optional)         | Default is unchecked (false),which creates _ID values as several characters which denote the table (e.g., MUP for MapUnitPolys) followed by consecutive zero-padded integers: MUP0001, MUP0002, MUP0003, etc. If checked, creates GUIDs (Globally-Unique IDs which are many-byte nonsense strings) for _ID values. | Boolean       |
 | Do_not_reset_DataSource_IDs  | If unchecked, resets values of DataSources_ID and all DataSourcesID, LocationSourceID, AnalysisSourceID and similar that refer to DataSources_ID. Default is checked, which leaves these values unchanged. | Boolean       |
 
-### <a name=".docxtoDMU"></a>.docx to DMU
+### .docx to DMU
 
 *[GeMS_DocxToDMU_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_DMUtoDocx_AGP2.py)*
 
@@ -73,7 +73,7 @@ Values of UnitLabl in the manuscript must be unique.
 - The [lxml](http://lxml.de) package must be present on the host computer. Easiest to install using the Python pip utility. Note that you may want to install it for both 64-bit and 32-bit Pythons (e.g., C:\Python27\ArcGISx6410.5and C:\Python27\ArcGIS10.5). 
 - *[docxModified.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/docxModified.py)*, which is included in the GeMS toolbox
 
-### <a name="AttributebyKeyValues"></a>Attribute by Key Values
+### Attribute by Key Values
 
 *[GeMS_AttributeByKeyValues_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_AttributeByKeyValues_AGP2.py)*
 
