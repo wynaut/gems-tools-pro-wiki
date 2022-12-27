@@ -18,24 +18,24 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 | [(re)Set ID values](#reset-id-values) |                         |                   | X |  |
 | [.docx to DMU](#docx-to-dmu) | X | |  |  |
 | [Attribute by Key Values](#attribute-by-key-values) | X | | |  |
-| [Build Metadata](#BuildMetadata) | | | X | |
-| [Compact and Backup](#CompactAndBackup) | X | | X |  |
-| [Create New Database](#CreateNewDatabase) | X | | |  |
-| [Deplanarize CAF](#DeplanarizeCAF) | X | | |  |
-| [DMU to .docx](#DMUtodocx) |  | | X | X |
-| [Geologic Names Check](#GeologicNamesCheck) |  | | X | X |
-| [Inclination Numbers](#InclinationNumbers) |  | X | |  |
-| [Make Polygons](#MakePolygons) | X | | |  |
-| [Make Topology](#MakeTopology) | X | | |  |
-| [MapOutline](#MapOutline) | X | | |  |
-| [Project Map Data to Cross Section](#ProjectMap) | X | | |  |
-| [Relationship Classes](#RelationshipClasses) |  | | X |  |
-| [Set PlotAtScale Values](#SetPlotAtScaleValues) |  | X | X |  |
-| [Set Symbol Values](#SetSymbolValues) |  | X | X |  |
-| [Symbol to RGB](#SymbolToRGB) |  | | X |  |
-| [Topology Check](#TopologyCheck) |  | | X | X |
-| [Translate to Shapefiles](#TranslateToShapefiles) |  | | X |  |
-| [Validate Database](#ValidateDatabase) |  | | X | X |
+| [Build Metadata](#build-metadata) | | | X | |
+| [Compact and Backup](#compact-and-backup) | X | | X |  |
+| [Create New Database](#create-new-database) | X | | |  |
+| [Deplanarize CAF](#deplanarize-caf) | X | | |  |
+| [DMU to .docx](#dmu-to-docx) |  | | X | X |
+| [Geologic Names Check](#geologic-names-check) |  | | X | X |
+| [Inclination Numbers](#inclination-numbers) |  | X | |  |
+| [Make Polygons](#make-polygons) | X | | |  |
+| [Make Topology](#make-topology) | X | | |  |
+| [MapOutline](#map-outline) | X | | |  |
+| [Project Map Data to Cross Section](#project-map-data-to-cross-section) | X | | |  |
+| [Relationship Classes](#relationship-classes) |  | | X |  |
+| [Set PlotAtScale Values](#set-plot-at-scale-values) |  | X | X |  |
+| [Set Symbol Values](#set-symbol-values) |  | X | X |  |
+| [Symbol to RGB](#symbol-to-rgb) |  | | X |  |
+| [Topology Check](#topology-check) |  | | X | X |
+| [Translate to Shapefiles](#translate-to-shapefiles) |  | | X |  |
+| [Validate Database](#validate-database) |  | | X | X |
 
 ### (re)Set ID Values
 
@@ -132,7 +132,7 @@ This file can also be created and edited with a spreadsheet program (e.g., Libre
 
 Tool **Attribute By Key Values** can be run multiple times during the course of building a geodatabase (recommended) or just once at the end.
 
-### <a name="BuildMetadata"></a>Build Metadata
+### Build Metadata
 
 *[GeMS_FGDCMetadata_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_FGDCMetadata_AGP2.py)*
 
@@ -190,7 +190,7 @@ Finally, have the record reviewed by a skilled metadata reviewer.
 | Missing definitions and sources | missing | How should the Definition and Definition_Source elements for Entities (tables) and Attributes (fields) be filled out if no definition is found? Choices are:<ul><li>leave blank <em>(seen as an error when validating; easy to find in Metadata Wizard)</em><li>flag as 'MISSING' <em>(not seen as an error when validating but can be easier to find in a text editor)</em></li></ul> Default is 'leave blank'. Optional. Use a custom definitions file to automate the creation of definitions and source text. | string |
 | Export .txt version of metadata? | export_text | Should a text (more human readable) version of the output metadata by exported? Boolean. False by default. Optional. | boolean |
 
-### <a name="CompactAndBackup"></a>Compact and Backup
+### Compact and Backup
 
 *[GeMS_CompactAndBackup_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_CompactAndBackup_AGP2.py)*
 
@@ -202,9 +202,7 @@ named *geodatabasename*_current date. Multiple backups in a single day will have
 | Input_geodatabase               | The geodatabase which will be compacted and then backed up   | Workspace     |
 | Message_for_log_file (Optional) | Optional message to be written, with timestamp and username, to file 00log.txt inside the geodatabase directory. If this is a personal geodatabase, the write should fail gracefully and this message will not be recorded. | String        |
 
-
-
-### <a name="CreateNewDatabase"></a>Create New Database
+### Create New Database
 
 *[GeMS_CreateDatabase_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_CreateDatabase_AGP2.py)*
 
@@ -230,8 +228,7 @@ This tool may take several minutes to run.
 
 - *[GeMS_definitions.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_Definition.py)*
 
-
-### <a name="DeplanarizeCAF"></a>Deplanarize CAF
+### Deplanarize CAF
 
 *[GeMS_Deplanarize_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_Deplanarize_AGP2.py)*
 
@@ -251,7 +248,7 @@ Nodes are named by their XY coordinates recorded to within 0.01 map units. We as
 | ----------------- | ----------------------------------- | ------------- |
 | Input_geodatabase | Should be a GeMS-style geodatabase. | Workspace     |
 
-### <a name="DMUtodocx"></a>DMU to .docx
+### DMU to .docx
 
 *[GeMS_DMUtoDocx_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_DocxToDMU_AGP2.py)*
 
@@ -293,7 +290,7 @@ Put heading values in the Name field, accompanying headnote text (if any) in the
 - *MSWordDMUtemplate*, which is a directory within the GeMS Tools\Resources directory. This directory provides essential elements of a Microsoft Word document that uses the paragraph styles defined in USGS Pubs template *MapManuscript_v1-0_04-11.dotx*
 
 
-### <a name="GeologicNamesCheck"></a>Geologic Names Check
+### Geologic Names Check
 
 *[GeMS_GeolexCheck_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_GeolexCheck_AGP2.py)*
 
@@ -337,9 +334,7 @@ def isPlanar(orientationType):
     return isPlanarType
 ```
 
-
-
-###<a name="MakePolygons"></a>Make Polygons
+### Make Polygons
 
 *[GeMS_MakePolys3_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_MakePolys3_AGP2.py)*
 
@@ -363,9 +358,7 @@ While running, **Make Polygons** writes (overwrites) and deletes temporary featu
 | Saved-layer_directory (Optional)      | Directory in which .lyr files are saved for any map layers with sources MapUnitPolys, errors_excessContacts, errors_multilabelPolys, errors_multilabels, and errors_unlabeledPolys. These .lyr files are deleted when script completes. Must have write permission. Default is the directory that hosts the input geodatabase. | Folder        |
 | Label_points_feature_class (Optional) | An optional point feature class with attribute MapUnit (and perhaps other attributes), which may used to label polygons. Familiar to those who used workstation ArcInfo, in which such features were necessary. ArcGIS does not _require_ label points; polygons can be created and attributed without them. | Feature Class |
 
-
-
-### <a name="MakeTopology"></a>Make Topology
+### Make Topology
 
 *[GeMS_MakeTopology_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_MakeTopology_AGP2.py)*
 
@@ -389,7 +382,7 @@ Esri topology rules applied are:
 
  
 
-### <a name="MapOutline"></a>MapOutline  
+### Map Outline  
 
 *[mapOutline_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/mapOutline_AGP2.py)*
 
@@ -411,9 +404,7 @@ Output feature classes MapOutline and Tics are written to the top level of the o
 | output_coordinate_system     | Browse to select coordinate system from ArcGIS-provided coordinate system definitions, to import a coordinate system from an existing data set (RECOMMENDED) or define a coordinate system from scratch. | Coordinate System            |
 | scratch_workspace            | Directory that is writable. Files xxxbox.csv, xxxtics.csv, xxx1.dbf, xxx1.dbf.xml will be written to this directory and then deleted. Existing files with these names will be lost! | Folder                       |
 
-
-
-### <a name="ProjectMap"></a>Project Map Data to Cross Section
+### Project Map Data to Cross Section
 
 *[GeMS_ProjectCrossSectionData_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ProjectCrossSectionData_AGP2.py)*
 
@@ -452,7 +443,7 @@ This script also creates empty GeMS feature classes CSxxContactsAndFaults, CSxxM
 | Scratch_workspace (Optional)          | If blank, output feature dataset will be used as scratch workspace. Temporary feature classes have names that begin with 'xxx'. Existing feature classes with these names will be overwritten. | Workspace or Feature Dataset |
 | Save_intermediate_data                | Default = NO (unchecked). This script creates temporary tables in the input geodatabase and temporary feature classes in the scratch workspace (default is the output feature dataset). If this box is unchecked, these tables and feature classes will not be deleted when the script finished. Check this box if you need these temporary data for troubleshooting. Note that using the default scratch workspace, saving intermediate data and then running the tool to create another feature dataset will not work. You must first delete the temporary data files within the first feature dataset. | Boolean                      |
 
-### <a name="RelationshipClasses"></a>Relationship Classes
+### Relationship Classes
 
 *[GeMS_RelationshipClasses1_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_RelationshipClasses1_AGP2.py)*
 
@@ -476,9 +467,7 @@ Note that:
 | ---------------- | ------------------------------------------------------------ | ------------- |
 | GeMS_geodatabase | Name of geodatabase to which relationship classes will be added. Note that any existing relationship classes with the same names will be deleted. | Workspace     |
 
-
-
-### <a name="SetPlotAtScaleValues"></a>Set PlotAtScale Values
+### Set PlotAtScale Values
 
 *[GeMS_SetPlotAtScales_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_SetPlotAtScales_AGP2.py)*
 
@@ -496,9 +485,7 @@ Input feature class must have PlotAtScale field. If input feature class is named
 | Minimum_separation _(mm)     | Set this on basis of symbol diameter, in mm on the page. For FGDC structure symbols, 8 works OK. | Double        |
 | Maximum_value_of_PlotAtScale | Large values (e.g., >100,000) with large feature classes (e.g., > 1,000 features) can take a LONG time to calculate. | Double        |
 
-
-
-### <a name="SetSymbolValues"></a>Set Symbol Values
+### Set Symbol Values
 
 *[GeMS_SetSymbols_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_SetSymbols_AGP2.py)*
 
@@ -535,9 +522,7 @@ Symbols are only calculated for recognized Type values. Recognized *Type* values
 
 If you check **Set_polygon_symbols_and_labels** there must be a *DescriptionOfMapUnits* table with rows for each map unit AND with values, for each map unit, of *MapUnit*, *IdentityConfidence*, *Symbol*, and *Label*.
 
-
-
-### <a name="SymbolToRGB"></a>Symbol to RGB
+### <Symbol to RGB
 
 *[GeMS_WPGCMYK_RGB.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_WPGCMYK_RGB.py)*
 
@@ -551,10 +536,7 @@ Calculates values of AreaFillRGB in table DescriptionOfMapUnits of a GeMS-style 
 
 - Calls module *[colortrans.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/colortrans.py)*, which calls module *[wpgdict.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/wpgdict.py)*. Both are included in the *GeMS_Toolbox/Scripts *directory
 
-
-
-
-### <a name="TopologyCheck"></a>Topology Check
+### Topology Check
 
 *[GeMS_TopologyCheck_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_TopologyCheck_AGP2.py)*
 
@@ -656,7 +638,7 @@ Uses the values for minimum line length, minimum polygon area, and minimum polyg
 
 These inventories may be useful to find digitizing errors and to help enforce cartographic standards regarding minimum map-unit polygon size. 
 
-### <a name="TranslateToShapefiles"></a>Translate To Shapefiles
+### Translate To Shapefiles
 
 *[GeMS_TranslateToShape_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_TranslateToShape_AGP2.py)*
 
@@ -672,7 +654,7 @@ Output is written to directories *DBName*-simple and *DBName*-open, where *DBNam
 | Input_geodatabase | An existing geodatabase. May be a file (.gdb) or personal (.mdb) geodatabase. | Workspace     |
 | Output_workspace  | Must be an existing folder. Output folders *DBName*-open and *DBName*-simple will be written here, as well as temporary geodatabase xx*DBName*. | Folder        |
 
-### <a name="ValidateDatabase"></a>Validate Database
+### Validate Database
 
 *[GeMS_ValidateDatabase_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ValidateDatabase_AGP2.py)*
 
