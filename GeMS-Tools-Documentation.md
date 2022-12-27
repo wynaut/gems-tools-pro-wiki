@@ -15,7 +15,7 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 
 | Tool                              | Create and edit database | Cartography | Finalize database | Validate database |
 | --------------------------------- | :----------------------: | :---------------: | :---------: | :-------------------------------: |
-| [(re)Set ID values](#(re)SetIDvalues) |                         |                   | X |  |
+| [(re)Set ID values](#(re)setidvalues) |                         |                   | X |  |
 | [.docx to DMU](#.docxtoDMU) | X | |  |  |
 | [Attribute by Key Values](#AttributebyKeyValues) | X | | |  |
 | [Build Metadata](#BuildMetadata) | | | X | |
@@ -37,7 +37,7 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 | [Translate to Shapefiles](#TranslateToShapefiles) |  | | X |  |
 | [Validate Database](#ValidateDatabase) |  | | X | X |
 
-### (re)SetIDvalues
+###(re)SetIDvalues
 
 *[GeMS_reID_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_reID_AGP2.py)*
 
