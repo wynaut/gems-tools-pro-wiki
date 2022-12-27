@@ -30,7 +30,7 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 | [MapOutline](#map-outline) | X | | |  |
 | [Project Map Data to Cross Section](#project-map-data-to-cross-section) | X | | |  |
 | [Relationship Classes](#relationship-classes) |  | | X |  |
-| [Set PlotAtScale Values](#set-plot-at-scale-values) |  | X | X |  |
+| [Set PlotAtScale Values](#set-plotatscale-values) |  | X | X |  |
 | [Set Symbol Values](#set-symbol-values) |  | X | X |  |
 | [Symbol to RGB](#symbol-to-rgb) |  | | X |  |
 | [Topology Check](#topology-check) |  | | X | X |
@@ -379,8 +379,6 @@ Esri topology rules applied are:
 | --------------------- | ------------------------------------------------------------ | ------------- |
 | Input_feature_dataset |                                                              | Dataset       |
 | use_MUP_rules         | Default = checked. If checked, adds rules that involve MapUnitPolys feature class (no gaps, no overlaps, boundaries must be covered by ContactsAndFaults). In some cases it is useful to build a topology that does not incorporate MapUnitPolys, most commonly so that this topology need not be deleted before (re)making polygons. | Boolean       |
-
- 
 
 ### Map Outline  
 
