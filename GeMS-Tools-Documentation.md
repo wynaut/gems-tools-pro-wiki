@@ -520,7 +520,7 @@ Symbols are only calculated for recognized Type values. Recognized *Type* values
 
 If you check **Set_polygon_symbols_and_labels** there must be a *DescriptionOfMapUnits* table with rows for each map unit AND with values, for each map unit, of *MapUnit*, *IdentityConfidence*, *Symbol*, and *Label*.
 
-### <Symbol to RGB
+### Symbol to RGB
 
 *[GeMS_WPGCMYK_RGB.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_WPGCMYK_RGB.py)*
 
