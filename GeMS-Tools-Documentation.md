@@ -39,7 +39,7 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 
 ### (re)Set ID Values
 
-*[GeMS_reID_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_reID_AGP2.py)*
+*[GeMS_reID.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_reID.py)*
 
 GeMS-style databases use _ID values as primary keys; these values are repeated as ID values in other tables where they serve as foreign keys to tie tables together. **(re)Set ID values** generates _ID values while preserving any links established by existing _ID and ID values. As an option, GUIDs may be substituted for plain-text _ID and ID values.
 
@@ -53,7 +53,7 @@ This script modifies the input geodatabase. Make a backup copy (with **Compact a
 
 ### .docx to DMU
 
-*[GeMS_DocxToDMU_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_DMUtoDocx_AGP2.py)*
+*[GeMS_DocxToDMU.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_DMUtoDocx.py)*
 
 .docx to DMU** extracts DMU paragraphs from a Microsoft Word document, calculates values of HierarchyKey, and partially fills in table DescriptionOfMapUnits. Non-DMU paragraphs (the rest of the map text) are ignored. The Word document must be formatted using the paragraph styles in USGS Pubs template *MapManuscript_v1-0_04-11.dotx*, which is included with in folder *GeMS_Tools/Docs*.
 
@@ -71,11 +71,11 @@ Values of UnitLabl in the manuscript must be unique.
 #####  Significant dependencies 
 
 - The [lxml](http://lxml.de) package must be present on the host computer. Easiest to install using the Python pip utility. Note that you may want to install it for both 64-bit and 32-bit Pythons (e.g., C:\Python27\ArcGISx6410.5and C:\Python27\ArcGIS10.5). 
-- *[docxModified.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/docxModified.py)*, which is included in the GeMS toolbox
+- *[docxModified.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/docxModified.py)*, which is included in the GeMS toolbox
 
 ### Attribute by Key Values
 
-*[GeMS_AttributeByKeyValues_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_AttributeByKeyValues_AGP2.py)*
+*[GeMS_AttributeByKeyValues.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_AttributeByKeyValues.py)*
 
 **Attribute By Key Values** steps through an identified subset of feature classes in the GeologicMap feature dataset and, for specified values of an independent field, calculates values of multiple dependent fields. It is useful for translating single-attribute datasets into GeMS format, and for using GeMS to digitize in single-attribute mode.
 
@@ -113,7 +113,7 @@ This tool simplifies the translation from such schemas into GeMS.
 	bedding|bedding| 20| 5| certain| 06.01.01
 	…
 
- An [example keyvalue file](https://github.com/usgs/gems-tools-pro/blob/master/Resources/Dig24K_KeyValues.txt) is provided with the toolbox, in the folder *GeMS_Tools\Resources.* Important aspects of the keyvalue file are: 
+ An [example keyvalue file](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Resources/Dig24K_KeyValues.txt) is provided with the toolbox, in the folder *GeMS_Tools\Resources.* Important aspects of the keyvalue file are: 
 
 1. It contains one or more sets of header lines, such as lines 1, 2, and 6, 7 above. Header lines come in pairs: the first line identifies a feature class within the GeologicMap feature dataset. The second line names the independent attribute within that feature class and then the dependent attributes whose values will be calculated based upon the independent attribute. 
 2. All lines after a pair of header lines are definitions for the respective values specified in that header line, until the next pair of header lines is encountered. 
@@ -134,7 +134,7 @@ Tool **Attribute By Key Values** can be run multiple times during the course of 
 
 ### Build Metadata
 
-*[GeMS_FGDCMetadata_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_FGDCMetadata_AGP2.py)*
+*[GeMS_FGDCMetadata.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_FGDCMetadata.py)*
 
 **Build Metadata** helps elaborate [FGDC CSDGM2](https://www.fgdc.gov/metadata) metadata for a GeMS-style geodatabase. The database can be an ArcGIS file geodatabase or a geopackage.
 
@@ -192,7 +192,7 @@ Finally, have the record reviewed by a skilled metadata reviewer.
 
 ### Compact and Backup
 
-*[GeMS_CompactAndBackup_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_CompactAndBackup_AGP2.py)*
+*[GeMS_CompactAndBackup.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_CompactAndBackup.py)*
 
 **Compact and Backup** compacts a database and copies it to an archive version. The archive version is 
 named *geodatabasename*_current date. Multiple backups in a single day will have suffixes a, b, c, etc. 
@@ -204,7 +204,7 @@ named *geodatabasename*_current date. Multiple backups in a single day will have
 
 ### Create New Database
 
-*[GeMS_CreateDatabase_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_CreateDatabase_AGP2.py)*
+*[GeMS_CreateDatabase.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_CreateDatabase.py)*
 
 **Create New Database** creates a new GeMS-style geodatabase. 
 
@@ -226,11 +226,11 @@ This tool may take several minutes to run.
 
 ##### Significant dependencies 
 
-- *[GeMS_definitions.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_Definition.py)*
+- *[GeMS_definitions.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_Definition.py)*
 
 ### Deplanarize CAF
 
-*[GeMS_Deplanarize_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_Deplanarize_AGP2.py)*
+*[GeMS_Deplanarize.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_Deplanarize.py)*
 
 **Deplanarize CAF** removes excess nodes from arcs in the ContactsAndFaults feature class of the GeologicMaps feature dataset of a GeMS-style geodatabase. *Note: This script has not been extensively tested. PLEASE back up your geodatabase before running it. Examine the results for correctness.*
 
@@ -250,7 +250,7 @@ Nodes are named by their XY coordinates recorded to within 0.01 map units. We as
 
 ### DMU to .docx
 
-*[GeMS_DMUtoDocx_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_DocxToDMU_AGP2.py)*
+*[GeMS_DMUtoDocx.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_DocxToDMU.py)*
 
 **DMU to .docx** reads table DescriptionOfMapUnits in a GeMS-style geodatabase and creates"Description of Map Units" as a Microsoft Word .docx file using paragraph styles defined in USGS Pubs template *MapManuscript_v1-0_04-11.dotx*. The resulting file is likely to need minor editing, particularly finding and replacing all instances of “--” with em dashes. 
 
@@ -286,13 +286,13 @@ Put heading values in the Name field, accompanying headnote text (if any) in the
 
 ##### Significant dependencies: 
 
-- *[docxModified.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/docxModified.py)*,which is included in the *GeMS_Toolbox/Scripts* directory
+- *[docxModified.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/docxModified.py)*,which is included in the *GeMS_Toolbox/Scripts* directory
 - *MSWordDMUtemplate*, which is a directory within the GeMS Tools\Resources directory. This directory provides essential elements of a Microsoft Word document that uses the paragraph styles defined in USGS Pubs template *MapManuscript_v1-0_04-11.dotx*
 
 
 ### Geologic Names Check
 
-*[GeMS_GeolexCheck_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_GeolexCheck_AGP2.py)*
+*[GeMS_GeolexCheck.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_GeolexCheck.py)*
 
 **Geologic Names Check** automates some of the steps in a geologic names review as required by USGS publication policy. It searches within the DescriptionOfMapUnits table for names and usages found in the U.S. Geologic Names Lexicon (Geolex) and provides a report template in spreadsheet form for the author and reviewer to use during the review process. The tool reports the Geolex names found within the map unit name, the usages associated with those names, and whether or not the author's choice of geographic extent matches that found in Geolex. Comparisons of age and status (formal vs informal) are not at this time considered.
 
@@ -306,7 +306,7 @@ More info at [Filling out the Geologic Names Report](https://github.com/usgs/gem
 
 ### <a name="InclinationNumbers"></a>Inclination Numbers
 
-*[GeMS_InclinationNumbers_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_InclinationNumbers_AGP2.py)*
+*[GeMS_InclinationNumbers.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_InclinationNumbers.py)*
 
 Creates annotation feature class OrientationPointLabels with dip and plunge numbers for appropriate features within OrientationPoints. Adds a layer representing the new annotation feature class to your map composition. 
 
@@ -336,7 +336,7 @@ def isPlanar(orientationType):
 
 ### Make Polygons
 
-*[GeMS_MakePolys3_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_MakePolys3_AGP2.py)*
+*[GeMS_MakePolys3.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_MakePolys3.py)*
 
 **Make Polygons**:
 
@@ -360,7 +360,7 @@ While running, **Make Polygons** writes (overwrites) and deletes temporary featu
 
 ### Make Topology
 
-*[GeMS_MakeTopology_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_MakeTopology_AGP2.py)*
+*[GeMS_MakeTopology.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_MakeTopology.py)*
 
 Creates and validates a topology feature class within a GeMS-style feature dataset. The new topology class is named GeologicMap_Topology (for the GeologicMap feature class) or xxx_Topology (for all other feature classes, where xxx is the prefix for the ContactsAndFaults-equivalent feature class within that feature dataset). Any existing topology with this name will be deleted. The input feature dataset should contain feature classes xxxContactsAndFaults and xxxMapUnitPolys (where xxx may be null). 
 
@@ -382,7 +382,7 @@ Esri topology rules applied are:
 
 ### Map Outline  
 
-*[mapOutline_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/mapOutline_AGP2.py)*
+*[mapOutline.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/mapOutline.py)*
 
 **MapOutline** calculates a map boundary and tics for rectangular (in latitude-longitude space) areas. Locations of boundary and tics are projected to the specified output coordinate system. 
 
@@ -404,7 +404,7 @@ Output feature classes MapOutline and Tics are written to the top level of the o
 
 ### Project Map Data to Cross Section
 
-*[GeMS_ProjectCrossSectionData_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ProjectCrossSectionData_AGP2.py)*
+*[GeMS_ProjectCrossSectionData.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_ProjectCrossSectionData.py)*
 
 **Project Map Data toCross Section** generates backdrop feature classes useful in constructing a geologic cross section. Inputs include the GeologicMap feature dataset of a GeMS-style geodatabase, a cross-section line (feature class, feature layer, or selection), and a DEM. The cross-section line need not be straight. 
 
@@ -443,7 +443,7 @@ This script also creates empty GeMS feature classes CSxxContactsAndFaults, CSxxM
 
 ### Relationship Classes
 
-*[GeMS_RelationshipClasses1_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_RelationshipClasses1_AGP2.py)*
+*[GeMS_RelationshipClasses.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_RelationshipClasses.py)*
 
 A GeMS geodatabase has numerous implicit relationships. For example, 
 
@@ -467,7 +467,7 @@ Note that:
 
 ### Set PlotAtScale Values
 
-*[GeMS_SetPlotAtScales_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_SetPlotAtScales_AGP2.py)*
+*[GeMS_SetPlotAtScales.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_SetPlotAtScales.py)*
 
 Sets values of item PlotAtScale so that a definition query 
 
@@ -485,7 +485,7 @@ Input feature class must have PlotAtScale field. If input feature class is named
 
 ### Set Symbol Values
 
-*[GeMS_SetSymbols_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_SetSymbols_AGP2.py)*
+*[GeMS_SetSymbols.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_SetSymbols.py)*
 
 **Set Symbol Values** sets the *Symbol* attribute for some features in a GeMS-style geodatabase to match symbol IDs in the GSC implementation of the FGDC Digital Cartographic Standard forGeologic Map Symbolization (FGDC-STD-013-2006). 
 
@@ -522,7 +522,7 @@ If you check **Set_polygon_symbols_and_labels** there must be a *DescriptionOfMa
 
 ### <Symbol to RGB
 
-*[GeMS_WPGCMYK_RGB.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_WPGCMYK_RGB.py)*
+*[GeMS_WPGCMYK_RGB.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_WPGCMYK_RGB.py)*
 
 Calculates values of AreaFillRGB in table DescriptionOfMapUnits of a GeMS-style geodatabase. Symbol values must be present and are assumed to reference the WPGCYMK color set, which is included in style file USGS Symbols2.style.
 
@@ -532,11 +532,11 @@ Calculates values of AreaFillRGB in table DescriptionOfMapUnits of a GeMS-style 
 
 ##### Significant dependencies: 
 
-- Calls module *[colortrans.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/colortrans.py)*, which calls module *[wpgdict.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/wpgdict.py)*. Both are included in the *GeMS_Toolbox/Scripts *directory
+- Calls module *[colortrans.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/colortrans.py)*, which calls module *[wpgdict.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/wpgdict.py)*. Both are included in the *GeMS_Toolbox/Scripts *directory
 
 ### Topology Check
 
-*[GeMS_TopologyCheck_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_TopologyCheck_AGP2.py)*
+*[GeMS_TopologyCheck.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_TopologyCheck.py)*
 
 **Topology Check** evaluates topological aspects of feature datasets in a GeMS-style geologic map geodatabase. It does not substantially alter the input geodatabase. Output is a new geodatabase *inGeodatabase_*errors.gdb and an HTML file *inGeodatabase*_topologyReport.html. For each feature dataset evaluated the output geodatabase will contain a feature dataset of the same name that contains feature classes which identify possible errors of various kinds. Default is that only the GeologicMap feature dataset is evaluated. 
 
@@ -569,7 +569,7 @@ def isFault(lType):
 
 | Parameter                                               | Explanation                                                  | Data Type      |
 | ------------------------------------------------------- | ------------------------------------------------------------ | -------------- |
-| Geodatabase                                             | Input Geodatabase. Note that code was developed with file geodatabases (.gdb) and you may encounter bugs with a personal geodatabase (.mdb). | Workspace      |
+| Geodatabase                                             | Input File Geodatabase. | Workspace      |
 | Validate_topology_of_all_­feature_datasets (Optional)   | Default is unchecked (false). Check to evaluate topology of all feature datasets within input geodatabase.  Evaluation of a feature dataset that lacks an identifiable *ContactsAndFaults* feature class will trigger an error. | Boolean        |
 | Validate_topology_of_these_­feature_datasets (Optional) | Select specific feature datasets to evaluate. Note that if no feature datasets are selected and Validate_topology_of_all_feature_datasets is unchecked the *GeologicMap* feature dataset will be evaluated by default. Evaluation of a feature dataset that lacks an identifiable *ContactsAndFaults* feature class will trigger an error. Checking "Validate_topology_of_all_data_sets" overrides any selection made here. | Multiple Value |
 | Line_and_polygon_topology                               | Default is checked (true). Check to create and validate an ArcGIS topology class for each feature dataset. [See discussion below](#LineAndPolygonTopology). Any identified errors are written to feature classes *errors_xxxTopology_line, errors_xxxTopology_point*, and *errors_xxxTopology_poly*. | Boolean        |
@@ -638,7 +638,7 @@ These inventories may be useful to find digitizing errors and to help enforce ca
 
 ### Translate To Shapefiles
 
-*[GeMS_TranslateToShape_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_TranslateToShape_AGP2.py)*
+*[GeMS_TranslateToShape.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_TranslateToShape.py)*
 
 **Translate to Shapefiles** converts a GeMS-style ArcGIS geodatabase to two shapefile packages:
 
@@ -654,11 +654,30 @@ Output is written to directories *DBName*-simple and *DBName*-open, where *DBNam
 
 ### Validate Database
 
-*[GeMS_ValidateDatabase_AGP2.py](https://github.com/usgs/gems-tools-pro/blob/master/Scripts/GeMS_ValidateDatabase_AGP2.py)*
+*[GeMS_ValidateDatabase.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_ValidateDatabase.py)*
 
-**Validate Database** audits a geodatabase for conformance with the GeMS schema and reports compliance as “may be **LEVEL 1 COMPLIANT**”, “is **LEVEL 2 COMPLIANT**”, or “is **LEVEL 3 COMPLIANT**”. It also runs mp (metadata parser) to check for formal errors in geodatabase-level FGDC metadata. Note that to qualify as LEVEL 2 or LEVEL 3 compliant a database must also be accompanied by a peer-reviewed geologic names report. 
+**Validate Database** audits a geodatabase for conformance with the GeMS schema and reports compliance as “may be **LEVEL 1 COMPLIANT**”, “is **LEVEL 2 COMPLIANT**”, or “is **LEVEL 3 COMPLIANT**”. It also optionally runs the [USGS Geospatial Metadata Validation Service](https://www1.usgs.gov/mp/) to check for formal errors in either the embedded geodatabase-level FGDC metadata or a stand-alone file. The tool goes through the compliance rules below one at a time logging each violation as an error. Beyond the basic requirements of the GeMS schema, it also makes other checks for data integrity and logs violations as warnings. Warnings do not necessarily need to be addressed but doing so enhances consistency and usability. The tool prepares a report in the form of two linked html files which show:
 
-Compliance criteria are:
+* Input parameters at run time
+* Level of compliance
+* Number of errors found for each rule with a link to the details of those errors listing one or more of the following:
+   * the table in which the error is found
+   * the field in which the error is found
+   * the ID value of the row in which the error is found
+   * the offending value
+* Warnings
+* Table and field extensions to GeMS
+* A table showing in which feature datasets each of the map units in the DescriptionOfMapUnits table is found
+* Contents of all non-spatial tables
+* An inventory of the contents of the database with a count of the rows in each table
+
+The names of the output html files consist of the name of the database (including the extension to differentiate gdbs from gpkgs) followed by `-Validation.html` and `-ValidationErrors.html`. The former is the principal summarizing report and contains links to the latter which lists error and warning details. You can rename the `Validation` file, but do not move or rename the `ValidationErrors` file or links inside the `Validation` file will be broken.
+
+If the metadata are validated, the auto-generated validation report listing errors and warnings is copied to the output folder. Again, to maintain a link in the `Validation` file, do not move or rename this file.
+
+If topology is to be checked, the tool first looks for an embedded topology class to validate. If that is absent, a new geodatabase named `Topology.gdb` is created in the output directory and a feature dataset and topology class is created for each pair of `MapUnit` and `ContactsAndFaults` featureclasses and then validate. Topology pairs are identified by either being in the same feature dataset or by identical prefixes and/or suffixes added to the base GeMS name.
+
+**Compliance criteria**
 
 **Level 1**: 
 * No overlaps or internal gaps in map-unit polygon layer
@@ -674,8 +693,8 @@ Databases with a variety of schema may meet these criteria. **Validate Database*
 * 2.4 All map units in MapUnitPolys have entries in DescriptionOfMapUnits table
 * 2.5 No duplicate MapUnit values in DescriptionOfMapUnit table
 * 2.6 Certain field values within required elements have entries in Glossary table
-* 2.7 No duplicate Term values in Glossary table
-* 2.8 All xxxSourceID values in required elements have entries in DataSources table
+* 2.7 No duplicate terms in Glossary table
+* 2.8 All SourceID values in required elements have entries in DataSources table
 * 2.9 No duplicate DataSources_ID values in DataSources table
 
 **Level 3**
@@ -693,23 +712,17 @@ Databases with a variety of schema may meet these criteria. **Validate Database*
 * 3.12 No duplicate _ID values
 * 3.13 No zero-length or whitespace-only strings
 
-**Validate Database** checks for schema extensions: are there tables, feature datasets, feature classes or fields that are not defined by the standard?
-
-**Validate Database** lists contents of tables DataSources, DefinitionOfMapUnits, Glossary, and (if present) MiscellaneousMapInformation in human-readable form.
-
-**Validate Database** also inventories the database and reports the number of rows, fields, and field definitions for all tables and feature classes. 
-
-Output is written to several files in *Output_workspace*: *Input*.gdb-Validation.html, *Input*.gdb-ValidationErrors.html, *Input*.gdb-vFgdcMetadata.txt, *Input*.gdb-vFgdcMetadata.xml, and *Input*.gdb-vFgdcMetadataErrors.txt.  Topology errors are recorded in *Input*_Validation.gdb.
-
-
-***If ArcMap is open, any joins--e.g., MapUnitPolys to DescriptionOfMapUnits--may need to be removed. If, when running this script from ArcMap, it fails to inventory some feature classes, try running it from ArcCatalog. If MapUnitPolys, ContactsAndFaults, or a similar feature class in another feature dataset participates in a relationship class--e.g., feature-linked annotation--ArcGIS may crash when the script attempts to copy the feature class into the Validation gdb to check topology.*** 
-
 Note that using this script with a geodatabase with a schema that differs significantly from GeMS may not yield a useful report.
 
 | **Parameter**               | **Explanation**                                              | **Data Type** |
 | --------------------------- | ------------------------------------------------------------ | ------------- |
-| Input_geodatabase           | A file geodatase (.gdb). The .gdb extension must be included. | Workspace     |
-| Output_workspace (optional) | A directory that must exist and be writable. If no directory is specified, defaults to host directory for *Input_geodatabase*. | Folder        |
-| Refresh GeoMaterialDict     | Databases built with earlier versions of the GeMS toolbox will generate numerous errors associated with GeoMaterialDict and GeoMaterial values. Check this box to replace the GeoMaterialDict table in the database with the current version. The GeoMaterials domain (available as a picklist while editing the DescriptionOfMapUnits table) is also replaced. ***This option permanently modifies the geodatabase. Perhaps you should back it up before using this option.*** | Boolean |
-| Skip topology checks        | If checked, potentially time-consuming topology checks will be skipped and database will FAIL level 2 and level 3 compliance checks. This may be useful when testing for other aspects of compliance with the GeMS schema. | Boolean |
-| Delete unused Glossary and DataSources rows | Automatically delete any rows in Glossary and DataSources that describe Terms and Sources that are unused elsewhere in the database. If deleted rows have missing required values these still show up as errors. Rerun the Validate Database script to clear such errors. Deletion of a Glossary row may render a DataSource row unneeded. Rerun the Validate Database script to discover such errors. ***This option permanently modifies the geodatabase. Perhaps you should back it up before using this option.*** | Boolean |
+| Input geodatabase or geopackage (required) | Path to the database | Workspace |
+| Output_workspace (optional) | If not supplied, a folder called 'validate' will be created in the parent folder of the database | Folder |
+| Metadata file (optional) | Path to metadata file to validate | File |
+| Validate embedded metadata? (optional) | True or false whether the embedded metadata of the file geodatabase as a whole (feature datasets, feature classes, tables, etc. will be ignored) are to be validated. Use this option only if the metadata for the geodatabase as a whole contains complete metadata for all elements and an Extent element (bounding box coordinates). If the metadata pass validation, submit the exported XML with the geodatabase. If you edit the exported file to correct errors, import it back into the geodatabase to keep the stand-alone and the embedded metadata in sync. If left blank and metadata file is blank, no metadata will be validated. Applies only to geodatabases and is not visible on the parameter form when validating geopackages. | Boolean |
+| Report errors with _ID (optional) | True or false whether errors in the report should be identified by values in the TableName_ID field, not the OBJECTID field. Useful in the case of validating a copy of an enterprise database that has been exported (which overwrites OBJECTIDs) to a file geodatabase but errors will be corrected in the enterprise database. For those tables that do not have a TableName_ID field or where the value is null, the OBJECTID will be reported. | Boolean |
+| Skip topology? (optional) | True or false whether checking topology should be skipped. Saves time when the state of the topology is known and the tool is being run frequently to check other aspects of the database, but the database will FAIL compliance at levels 2 and 3. Note that if the geodatabase has an embedded topology that can be checked, selecting this option does not save much time. Leave unchecked for the final generation of validation report. | Boolean |
+| Refresh GeoMaterialDict (optional) | Databases built with earlier versions of the GeMS toolbox will generate numerous errors associated with GeoMaterialDict and GeoMaterial values. Check this box to replace the GeoMaterialDict table in the database with the current version. The GeoMaterials domain (available as a picklist while editing the DescriptionOfMapUnits table) is also replaced. ***This option permanently modifies the geodatabase. Be sure you have saved a backup*** | Boolean |
+| Delete unused Glossary and DataSources rows (optional) | True or false whether to automatically delete any rows in Glossary and DataSources that describe Terms and Sources that are unused elsewhere in the database. Useful in the case when project-wide tables of sources and definitions are copied into a new database and not all entries in those tables are relevant for a particular map area. Note that deletion of a Glossary row may render a DataSource row unneeded. Rerun the Validate Database script to discover such errors. ***This option permanently modifies the geodatabase. Be sure you have saved a backup.*** | Boolean |
+| Compact GDB? (optional) | True or false whether to compact the file geodatabase. [Compacting](https://pro.arcgis.com/en/pro-app/latest/help/data/geodatabases/manage-file-gdb/compact-file-and-personal-geodatabases.htm) a frequently edited geodatabase cleans up storage and unused space while also reducing it in size. Not applicable to geopackages. | Boolean |
+| Open report when done? (optional)  | True or false whether to open the Validation report HTML file in a browser immediately upon finishing. | Boolean |
