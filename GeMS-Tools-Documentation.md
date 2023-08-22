@@ -382,7 +382,7 @@ Esri topology rules applied are:
 
 ### Map Outline  
 
-*[mapOutline.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/mapOutline.py)*
+*[GeMS_MapOutline.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/[GeMS_MapOutline.py)*
 
 **MapOutline** calculates a map boundary and tics for rectangular (in latitude-longitude space) areas. Locations of boundary and tics are projected to the specified output coordinate system. 
 
