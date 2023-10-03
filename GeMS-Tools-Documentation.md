@@ -136,7 +136,7 @@ Tool **Attribute By Key Values** can be run multiple times during the course of 
 
 *[GeMS_FGDCMetadata.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_FGDCMetadata.py)*
 
-**Build Metadata** helps elaborate [FGDC CSDGM2](https://www.fgdc.gov/metadata) metadata for a GeMS-style geodatabase. The database can be an ArcGIS file geodatabase or a geopackage.
+**Build Metadata** helps elaborate [FGDC CSDGM](https://www.fgdc.gov/metadata) metadata for a GeMS-style geodatabase. The database can be an ArcGIS file geodatabase or a geopackage.
 
 A fully GeMS-compliant database contains the information required for many elements in CSDGM metadata, but which must nonetheless be transcribed into a separate file. Likewise, definitions of GeMS-required tables and fields can be found in the [GeMS schema publication](https://scgeology.github.io/GeMS/index.html) but are also required in the metadata. This tool tries to automate the creation of as many of those elements as possible and also adds boilerplate language appropriate to the schema.
 
