@@ -22,7 +22,7 @@ Here is the current tool set. Click on a tool name to jump to its documentation.
 | [Compact and Backup](#compact-and-backup) | X | | X |  |
 | [Create New Database](#create-new-database) | X | | |  |
 | [Deplanarize CAF](#deplanarize-caf) | X | | |  |
-| [DMU to .docx](#dmu-to-docx) |  | | X | X |
+| [DMU to DOCX](#dmu-to-docx) |  | | X | X |
 | [Geologic Names Check](#geologic-names-check) |  | | X | X |
 | [Inclination Numbers](#inclination-numbers) |  | X | |  |
 | [Make Polygons](#make-polygons) | X | | |  |
