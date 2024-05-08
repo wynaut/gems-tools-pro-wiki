@@ -51,7 +51,7 @@ This script modifies the input geodatabase. Make a backup copy (with **Compact a
 | Use_GUIDs (Optional)         | Default is unchecked (false),which creates _ID values as several characters which denote the table (e.g., MUP for MapUnitPolys) followed by consecutive zero-padded integers: MUP0001, MUP0002, MUP0003, etc. If checked, creates GUIDs (Globally-Unique IDs which are many-byte nonsense strings) for _ID values. | Boolean       |
 | Do_not_reset_DataSource_IDs  | If unchecked, resets values of DataSources_ID and all DataSourcesID, LocationSourceID, AnalysisSourceID and similar that refer to DataSources_ID. Default is checked, which leaves these values unchanged. | Boolean       |
 
-### .docx to DMU
+### DOCX to DMU
 
 *[GeMS_DocxToDMU.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_DMUtoDocx.py)*
 
