@@ -248,47 +248,51 @@ Nodes are named by their XY coordinates recorded to within 0.01 map units. We as
 | ----------------- | ----------------------------------- | ------------- |
 | Input_geodatabase | Should be a GeMS-style geodatabase. | Workspace     |
 
-### DMU to .docx
+### DMU to DOCx
 
 *[GeMS_DMUtoDocx.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_DocxToDMU.py)*
 
-**DMU to .docx** reads table DescriptionOfMapUnits in a GeMS-style geodatabase and creates"Description of Map Units" as a Microsoft Word .docx file using paragraph styles defined in USGS Pubs template *MapManuscript_v1-0_04-11.dotx*. The resulting file is likely to need minor editing, particularly finding and replacing all instances of “--” with em dashes. 
+**Reads a GeMS-style DescriptionOfMapUnits table and creates a Microsoft Word .docx file formatted according to USGS Pubs template MapManuscript_v3-1_06-22.dotx. The table need not be in a geodatabase. It can be in any format that ArcGIS Pro can load as a table in a map such as a CSV, Geopackage table, or Excel spreadsheet.
 
-Use the following style names for ParagraphStyle in your DescriptionOfMapUnits table:
+You may specify the Word document styles to use in ParagraphStyle or let the tool try to determine the appropriate styles based on the table attributes.
 
-* ```DMU-Heading1``` (number may up to 5)
-* ```DMUUnit11stafterheading```
-* ```DMUunit1``` (number may be up to 5)
+When specifying ParagraphStyles in the table, use the following:
 
-Put heading values in the Name field, accompanying headnote text (if any) in the Description field, and use the appropriate DMU-Heading style in ParagraphStyle.
+* ```DMU-HeadingN``` (number, N, may up to 5)
+* ```DMU Headnote - 1 line```
+* ```DMU Headnote - More Than 1 line```
+* ```DMU Headnote Paragraph```
+* ```DMU Unit 1 (1st after heading)```
+* ```DMU Unit N``` (number, N, may be up to 5)
 
-**DMU to .docx** supports a minimal set of markup tags in text within the Description field: 
+See 'DMU_template.docx' in the Resources folder of this toolbox for examples of when to use these styles and a few other styles that can be used in special cases.
 
-`<b> ... </b>`  	bold
+When letting the tool determine the style, the following conditions will be evaluated:
+* Any row with a Name value but no MapUnit value will be considered a heading
+* Any row with a Description value but no MapUnit or Name value will be considered a headnote
+* Any row with a value in MapUnit will be considered a unit
+* Make sure your HierarchyKey values sort appropriately and encode the parent-child relationships you intend to get the results you expect in the Word document.
 
-`<i>... </i>`  	italic
+You may choose to have the tool try to convert text formatting tags in Label, Name, and Description but only a small set of either [ArcGIS Text Formatting Tags](https://pro.arcgis.com/en/pro-app/latest/help/mapping/text/text-formatting-tags.htm) or HTML tags are recognized by the tool:
 
-`<g> ... </g>`  	FGDCGeoAge font
-
-`<sup>...</sup>` 	superscript
-
-`<sub>...</sub>` 	subscript
-
-`<br>` 			break(start new paragraph)
+* ArcGIS only: <fnt>, <bol>, <ita> , 'size' , 'italic' , 'style' and 'wght' attributes in <fnt>
+* HTML only: <span>, <strong>, <em>, 'font-weight' and 'font-style' attributes in <span>
+* Both ArcGIS and HTML: <sup>, <sub>
 
 | **Parameter**           | **Explanation**                                              | **Data Type**                |
 | ----------------------- | ------------------------------------------------------------ | ---------------------------- |
-| Source_geodatabase      | An existing GeMS-style geodatabase. Table DescriptionOfMapUnits should be (at least partially) populated, and HierarchyKey values should be present, as DMU table is sorted on HierarchyKey before translation to .docx file | Workspace or Feature Dataset |
-| Output_workspace        | Directory in which output file will be written. Should exist and be writable. | Folder                       |
-| Output_filename         | Name of output file. File will be overwritten if it already exists. If filename does not end with ".docx", ".docx" will be appended to file name. | String                       |
-| Use_MapUnit_as_UnitLabl | Values in fields *MapUnit* or *Label* can be used for UnitLabl. Default (use *MapUnit*) is recommended for constructing and proofing the DMU table. It may be useful to use *Label* (box unchecked) for creating a final MSWord file of the DMU. | Boolean                      |
-| List_of_Map_Units       | If checked, creates a **List of Map Units** which omits map unit descriptions. | Boolean                      |
+| DMU table | APath to the GeMS-style DescriptionOfMapUnits table or the name of the table view of a DMU table in the map. Standalone files can be any format that ArcGIS Pro can load as a table such as CSV, Geopackage, or Excel spreadsheet.| table view or standalone file |
+| Output folder | Path to the output directory. | Folder |
+| Output filename | Name of output file with or without `.docx` extension | String |
+| Calculate paragraph styles | Attempt to determine the paragraph style based on attributes of the DMU. | Boolean |
+| Use Label field for unit abbreviations | Try to convert HTML formatting tags in Description to Word character styles | Boolean |
+| Attempt to preserve formatting tags in Description field | If checked, creates a **List of Map Units** which omits map unit descriptions. | Boolean |                    | Make List of Map Units | Create a List of Map Units from the table excluding Descriptions. | Boolean |
+| Open document when done | Open the resulting document in Word in editing mode when finished. | Boolean
 
 ##### Significant dependencies: 
 
-- *[docxModified.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/docxModified.py)*,which is included in the *GeMS_Toolbox/Scripts* directory
-- *MSWordDMUtemplate*, which is a directory within the GeMS Tools\Resources directory. This directory provides essential elements of a Microsoft Word document that uses the paragraph styles defined in USGS Pubs template *MapManuscript_v1-0_04-11.dotx*
-
+* docx (https://python-docx.readthedocs.io/en/latest/) included with toolbox in folder `Scripts\docx`
+* BeautifulSoup - installed in default ArcGIS Pro miniconda environment
 
 ### Geologic Names Check
 
