@@ -75,6 +75,8 @@ The paragraph content will be parsed into the table in the following ways:
 * The unit age will be saved in Age.
 * The unit description will be saved in Description, with or without formatting tags as desired. See below and checkbox help.
 
+Note that not all styles in 'DMU_template.docx' in the Resources folder of this toolbox are recognized by this tool, in particular, paragraph styles such as `DMU NoIndent`, `DMU Quotation`, and `DMU - List Bullet` are ignored.
+
 Regarding text formatting tags, ArcGIS Pro recognizes two flavors of tags depending on where the text is intended to be displayed. For labelling and annotation, [ArcGIS text formatting tags ](https://pro.arcgis.com/en/pro-app/latest/help/mapping/text/text-formatting-tags.htm)are recognized while HTML tags are used in pop-ups. The tool assumes that all text in Description would only be viewed in pop-ups whereas the text in Label will likely be used for labeling but might also appear in pop-ups. For Description there is only the choice to have character styling converted to HTML tags while both options exist for Label text. Only a small set of either [ArcGIS Text Formatting Tags](https://pro.arcgis.com/en/pro-app/latest/help/mapping/text/text-formatting-tags.htm) or HTML tags are written by the tool:
 
 * ArcGIS only: `<fnt>`, `<bol>`, `<ita>` , `'size'` , `'italic'` , `'style'` and `'wght'` attributes in `<fnt>`
@@ -93,8 +95,7 @@ Regarding text formatting tags, ArcGIS Pro recognizes two flavors of tags depend
 
 #####  Significant dependencies 
 
-- The [lxml](http://lxml.de) package must be present on the host computer. Easiest to install using the Python pip utility. Note that you may want to install it for both 64-bit and 32-bit Pythons (e.g., C:\Python27\ArcGISx6410.5and C:\Python27\ArcGIS10.5). 
-- *[docxModified.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/docxModified.py)*, which is included in the GeMS toolbox
+* docx (https://python-docx.readthedocs.io/en/latest/) included with toolbox in folder `Scripts\docx`
 
 ### Attribute by Key Values
 
