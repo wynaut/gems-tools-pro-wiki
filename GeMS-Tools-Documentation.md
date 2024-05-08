@@ -275,9 +275,9 @@ When letting the tool determine the style, the following conditions will be eval
 
 You may choose to have the tool try to convert text formatting tags in Label, Name, and Description but only a small set of either [ArcGIS Text Formatting Tags](https://pro.arcgis.com/en/pro-app/latest/help/mapping/text/text-formatting-tags.htm) or HTML tags are recognized by the tool:
 
-* ArcGIS only: `<fnt>`, \<bol\>, \<ita\> , 'size' , 'italic' , 'style' and 'wght' attributes in <fnt>
-* HTML only: \<span\>, \<strong\>, \<em\>, 'font-weight' and 'font-style' attributes in <span>
-* Both ArcGIS and HTML: <sup>, <sub>
+* ArcGIS only: `<fnt>`, `<bol>`, `<ita>`, `'size'`, `'italic'`, `'style'` and `'wght'` attributes in `<fnt>`
+* HTML only: `<span>`, `<strong>`, `<em>`, `'font-weight'` and `'font-style'` attributes in `<span>`
+* Both ArcGIS and HTML: `<sup>`, `<sub>`
 
 | **Parameter**           | **Explanation**                                              | **Data Type**                |
 | ----------------------- | ------------------------------------------------------------ | ---------------------------- |
