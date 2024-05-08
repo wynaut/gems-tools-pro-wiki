@@ -248,11 +248,11 @@ Nodes are named by their XY coordinates recorded to within 0.01 map units. We as
 | ----------------- | ----------------------------------- | ------------- |
 | Input_geodatabase | Should be a GeMS-style geodatabase. | Workspace     |
 
-### DMU to DOCx
+### DMU to DOCX
 
 *[GeMS_DMUtoDocx.py](https://github.com/DOI-USGS/gems-tools-pro/blob/master/Scripts/GeMS_DocxToDMU.py)*
 
-**Reads a GeMS-style DescriptionOfMapUnits table and creates a Microsoft Word .docx file formatted according to USGS Pubs template MapManuscript_v3-1_06-22.dotx. The table need not be in a geodatabase. It can be in any format that ArcGIS Pro can load as a table in a map such as a CSV, Geopackage table, or Excel spreadsheet.
+Reads a GeMS-style DescriptionOfMapUnits table and creates a Microsoft Word .docx file formatted according to USGS Pubs template MapManuscript_v3-1_06-22.dotx. The table need not be in a geodatabase. It can be in any format that ArcGIS Pro can load as a table in a map such as a CSV, Geopackage table, or Excel spreadsheet.
 
 You may specify the Word document styles to use in ParagraphStyle or let the tool try to determine the appropriate styles based on the table attributes.
 
@@ -275,8 +275,8 @@ When letting the tool determine the style, the following conditions will be eval
 
 You may choose to have the tool try to convert text formatting tags in Label, Name, and Description but only a small set of either [ArcGIS Text Formatting Tags](https://pro.arcgis.com/en/pro-app/latest/help/mapping/text/text-formatting-tags.htm) or HTML tags are recognized by the tool:
 
-* ArcGIS only: <fnt>, <bol>, <ita> , 'size' , 'italic' , 'style' and 'wght' attributes in <fnt>
-* HTML only: <span>, <strong>, <em>, 'font-weight' and 'font-style' attributes in <span>
+* ArcGIS only: `<fnt>`, \<bol\>, \<ita\> , 'size' , 'italic' , 'style' and 'wght' attributes in <fnt>
+* HTML only: \<span\>, \<strong\>, \<em\>, 'font-weight' and 'font-style' attributes in <span>
 * Both ArcGIS and HTML: <sup>, <sub>
 
 | **Parameter**           | **Explanation**                                              | **Data Type**                |
