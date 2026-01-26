@@ -1,0 +1,41 @@
+name: Sync repo contents to GitHub Wiki
+
+on:
+  schedule:
+    # Runs daily at midnight UTC (adjust cron as needed)
+    - cron: 11 6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  sync-wiki:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout wiki repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Clone the wiki Git repository
+        run: |
+          git clone https://github.com/${{ github.repository }}.wiki.git wiki
+
+      - name: Copy all files into wiki repo
+        run: |
+          rsync -av --delete --exclude=".github" ./ wiki/
+
+      - name: Commit & push wiki update
+        run: |
+          cd wiki
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "Auto-sync wiki from master"
+            git push
+          else
+            echo "No changes to sync"
+          fi
