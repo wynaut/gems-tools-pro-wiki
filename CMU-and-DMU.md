@@ -2,7 +2,7 @@
 
 **Geologic map units do not have arbitrary relations to each other.**  Unit B is younger than unit A, or B is the same age as A but a different facies, or B is a subspecies of A, or ...
 
-These relations are commonly shown graphically in a **Correlation of Map Units** diagram (**CMU**) ([example 1](http://www.dnr.sc.gov/geology/GeologicMap/3_corr.htm), [example 2](https://pubs.usgs.gov/sim/2940/sim2940_sheet2.pdf)) in which colored, perhaps patterned, and labeled rectangular patches that represent map units are organized by time (vertical axis, higher is younger) and by other dimension(s) such as facies or geography (horizontal axis).  Frequently units are grouped into clusters in age-other space. We read the CMU from top to bottom, left to right, cluster to cluster and within each cluster.
+These relations are commonly shown graphically in a **Correlation of Map Units** diagram (**CMU**) ([example](https://pubs.usgs.gov/sim/2940/sim2940_sheet2.pdf)) in which colored, perhaps patterned, and labeled rectangular patches that represent map units are organized by time (vertical axis, higher is younger) and by other dimension(s) such as facies or geography (horizontal axis).  Frequently units are grouped into clusters in age-other space. We read the CMU from top to bottom, left to right, cluster to cluster and within each cluster.
 ![img](/WikiImages/exampleCMU.png)
 
 Most geologic maps also have a free-text description of each map unit. Geologic maps published by the USGS in recent decades have these descriptions organized into a strongly formatted **Description of Map Units** (**DMU**) (see pages 49-50 in [Suggestions to authors of the reports of the United States Geological Survey, 7th edition](https://pubs.usgs.gov/msb/7000088/report.pdf)).  The organization of the DMU, created by headings, font variations, and indentation style, is hierarchical--that of a branching tree, extending from root to branchlet tips--and should correspond to that expressed graphically in the CMU.
@@ -43,7 +43,7 @@ This process is eased by generating a snap-grid of points spaced 0.05" (page uni
 
 [[WikiImages/DMUfragment1.png]]
 
-Once you have the CMU sketched out you can outline the DMU.  **Please read Appendix C, p. 61-68** in the [draft GeMS specification](https://ngmdb.usgs.gov/Info/standards/GeMS/docs/GeMSv2_draft7g_ProvisionalRelease.pdf), for advice and examples on how a DMU table is put together, particularly the construction of HierarchyKey values. 
+Once you have the CMU sketched out you can outline the DMU.  **Please read Appendix 3, p. 53-60** in the [GeMS specification](https://pubs.usgs.gov/tm/11b10/tm11b10.pdf), for advice and examples on how a DMU table is put together, particularly the construction of HierarchyKey values. 
 
 There are several ways to make a GeMS DMU table. 
 
